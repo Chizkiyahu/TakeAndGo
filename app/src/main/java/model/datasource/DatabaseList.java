@@ -12,6 +12,15 @@ import model.beckend.Backend;
 public class DatabaseList implements Backend {
 
 
+    private String username;
+    private String password;
+    private boolean logon;
+
+    public DatabaseList() {
+        logon = false;
+    }
+
+
     private class Users {
 
         String username;
@@ -40,6 +49,11 @@ public class DatabaseList implements Backend {
     }
 
     ArrayList<Users> users = new ArrayList<>();
+
+    @Override
+    public boolean logon() {
+        return this.logon;
+    }
 
     @Override
     public boolean checkUserPass(String username, String password) {
