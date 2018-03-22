@@ -1,5 +1,6 @@
 package com.example.chizkiyahuandchaskyh.takeandgo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,9 +14,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BackendFactory backendFactory = new BackendFactory();
-
+        setContentView(R.layout.activity_main);
         if (!backendFactory.getInstance().logon()){
-            setContentView(R.layout.activity_login);
+           LoginActivity login = new LoginActivity();
+            Intent intent = new Intent(this, LoginActivity.class);
+
+            startActivity(intent);
         }
 
 
@@ -28,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-       // setContentView(R.layout.activity_main);
+
 
 
     }
