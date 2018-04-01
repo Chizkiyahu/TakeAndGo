@@ -5,9 +5,9 @@ package entities;
  */
 
 public class Branch {
-    int id;
-    int numParkingSpaces;
-    Address address;
+    protected int id;
+    protected int numParkingSpaces;
+    protected Address address;
 
     public Branch(int id, int numParkingSpaces, Address address) {
         this.id = id;
