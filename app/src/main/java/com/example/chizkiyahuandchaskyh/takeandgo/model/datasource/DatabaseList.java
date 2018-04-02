@@ -2,14 +2,18 @@ package com.example.chizkiyahuandchaskyh.takeandgo.model.datasource;
 
 import java.util.ArrayList;
 
-import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.Backend;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 
 /**
  * Created by chezkiaho on 19.3.2018.
  */
 
 
-public class DatabaseList implements Backend {
+public class DatabaseList implements  DataSource {
 
 
     private String username;
@@ -18,6 +22,46 @@ public class DatabaseList implements Backend {
 
     public DatabaseList() {
         logon = false;
+    }
+
+    @Override
+    public Customer isExist(Customer customer) {
+        return null;
+    }
+
+    @Override
+    public void addCustomer(Customer customer) {
+
+    }
+
+    @Override
+    public void addCarModle(CarModel carModel) {
+
+    }
+
+    @Override
+    public void addCar(Car car) {
+
+    }
+
+    @Override
+    public ArrayList<CarModel> getCarModelList() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Customer> getListCustomer() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Branch> getBranchList() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Car> getCarList() {
+        return null;
     }
 
 

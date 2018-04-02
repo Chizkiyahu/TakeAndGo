@@ -4,7 +4,7 @@ package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
  * Created by chezkiaho on 23.3.2018.
  */
 
-public class Consumer {
+public class Customer {
     protected String lastName ;
     protected String firstName ;
     protected int id;
@@ -12,7 +12,7 @@ public class Consumer {
     protected String email ;
     protected  CreditCard creditCard;
 
-    public Consumer(String lastName, String firstName, int id, Long phoneNumber, String email, CreditCard creditCard) {
+    public Customer(String lastName, String firstName, int id, Long phoneNumber, String email, CreditCard creditCard) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.id = id;

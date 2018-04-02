@@ -1,7 +1,27 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
-public class Cer extends CarModel {
+public class Car  {
+
     protected int id;
+    protected int  branchID;
+    protected int km;
+
+    public Car(int id, int branchID, int km, int modelID) {
+        this.id = id;
+        this.branchID = branchID;
+        this.km = km;
+        this.modelID = modelID;
+    }
+
+    public int getModelID() {
+        return modelID;
+    }
+
+    public void setModelID(int modelID) {
+        this.modelID = modelID;
+    }
+
+    protected int modelID;
 
     public int getId() {
         return id;
@@ -27,15 +47,9 @@ public class Cer extends CarModel {
         this.km = km;
     }
 
-    protected int  branchID;
-    protected int km;
 
-    public Cer(int codeModel, String companyName, String modelName, String engineCapacity, GEAR_BOX gearBox, int seating, int id, int branchID, int km) {
-        super(codeModel, companyName, modelName, engineCapacity, gearBox, seating);
-        this.id = id;
-        this.branchID = branchID;
-        this.km = km;
-    }
+
+
 
 
 }
