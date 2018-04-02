@@ -21,14 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".controller.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:parentActivityName=".controller.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.chizkiyahuandchaskyh.takeandgo.controller.MainActivity" />
-        </activity>
     </application>
 
 </manifest>

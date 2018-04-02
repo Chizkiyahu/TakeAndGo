@@ -15,4 +15,5 @@
         completions."
     </string>
     <string name="forgot_password">Forgot password</string>
+    <string name="title_activity_test">test</string>
 </resources>
