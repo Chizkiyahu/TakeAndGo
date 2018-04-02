@@ -1,12 +1,11 @@
-package com.example.chizkiyahuandchaskyh.takeandgo;
+package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
-import model.datasource.BackendFactory;
-import model.datasource.DatabaseList;
+import com.example.chizkiyahuandchaskyh.takeandgo.R;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.datasource.BackendFactory;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,8 +1,6 @@
-package model.entities;
+package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
 import android.renderscript.Element;
-
-import java.sql.Time;
 
 public class Order {
     protected int orderID;

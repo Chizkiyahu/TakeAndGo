@@ -1,4 +1,4 @@
-package model.entities;
+package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
 public class Cer extends CarModel {
     protected int id;

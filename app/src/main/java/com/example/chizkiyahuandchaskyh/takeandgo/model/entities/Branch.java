@@ -1,4 +1,4 @@
-package model.entities;
+package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
 /**
  * Created by chezkiaho on 23.3.2018.

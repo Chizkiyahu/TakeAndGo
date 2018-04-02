@@ -1,8 +1,8 @@
-package model.datasource;
+package com.example.chizkiyahuandchaskyh.takeandgo.model.datasource;
 
 import java.util.ArrayList;
 
-import model.beckend.Backend;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.Backend;
 
 /**
  * Created by chezkiaho on 19.3.2018.

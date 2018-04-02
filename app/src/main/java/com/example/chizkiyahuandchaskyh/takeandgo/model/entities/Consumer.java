@@ -1,9 +1,4 @@
-package model.entities;
-
-import android.provider.ContactsContract;
-
-import java.text.DateFormat;
-import java.util.Date;
+package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
 /**
  * Created by chezkiaho on 23.3.2018.

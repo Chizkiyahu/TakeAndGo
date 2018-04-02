@@ -1,4 +1,4 @@
-package model.beckend;
+package com.example.chizkiyahuandchaskyh.takeandgo.model.beckend;
 
 /**
  * Created by chezkiaho on 19.3.2018.
