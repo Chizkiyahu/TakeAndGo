@@ -6,19 +6,19 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public interface DataSource {
-    Customer isExist(Customer customer);
-    void addCustomer(Customer customer);
-    void addCarModle(CarModel  carModel);
-    void addCar(Car car);
-    ArrayList<CarModel> getCarModelList();
+
+    Customer isExist(Integer id);
+    void addCustomer(Customer customer) throws Exception;
+    void addCarModle(CarModel  carModel) throws Exception;
+    void addCar(Car car) throws Exception;
+
+    Collection<CarModel> getCarModelList();
     ArrayList<Customer> getListCustomer();
     ArrayList<Branch> getBranchList();
     ArrayList<Car> getCarList();
 
-    boolean logon();
-    boolean checkUserPass (String username, String Password);
-    boolean checkUserFree(String username);
-    void addUserPass(String username, String Password) throws Exception;
+
 }
