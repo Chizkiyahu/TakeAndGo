@@ -16,7 +16,5 @@ public class BackendFactory {
     }
 
 
-    public static BackendFactory getOurInstance() {
-        return ourInstance;
-    }
+
 }

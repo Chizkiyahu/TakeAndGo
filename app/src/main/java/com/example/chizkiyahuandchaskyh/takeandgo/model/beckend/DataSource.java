@@ -21,4 +21,7 @@ public interface DataSource {
     ArrayList<Car> getCarList();
 
 
+    boolean TryUserPass(String username, String Password) throws Exception;
+    boolean checkUserIsFree(String username) throws Exception;
+    void addUserPass(String username, String Password) throws Exception;
 }

@@ -1,10 +1,7 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.model.datasource;
 
-import android.content.SharedPreferences;
-
 
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.LoginData;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
@@ -19,7 +16,7 @@ import java.util.Map;
  */
 
 
-public class DatabaseList implements  DataSource , LoginData  {
+public class DatabaseList implements  DataSource  {
 
 
     private String username;
