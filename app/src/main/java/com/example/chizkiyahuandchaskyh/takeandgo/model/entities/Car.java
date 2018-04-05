@@ -6,7 +6,7 @@ public class Car  {
     protected int  branchID;
     protected int km;
 
-    public Car(int id, int branchID, int km, int modelID) {
+    public Car(int id, int branchID, int km, CarModel model) {
         this.id = id;
         this.branchID = branchID;
         this.km = km;
