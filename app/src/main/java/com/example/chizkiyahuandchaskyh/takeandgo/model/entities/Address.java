@@ -20,7 +20,10 @@ public class Address {
     }
 
 
-
+    @Override
+    public String toString() {
+        return houseNum + street + ", "  + city + ", " + country;
+    }
 
     public String getCity() {
         return city;
