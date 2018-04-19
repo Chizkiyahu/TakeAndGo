@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".controller.ModelsActivity">
 
+    <ListView
+        android:id="@+id/list_models"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+
 </android.support.constraint.ConstraintLayout>

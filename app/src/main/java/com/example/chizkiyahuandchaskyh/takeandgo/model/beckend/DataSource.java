@@ -18,7 +18,7 @@ public interface DataSource {
 
 
 
-    Collection<CarModel> getCarModelList();
+    ArrayList<CarModel> getCarModelList();
     ArrayList<Customer> getListCustomer();
     ArrayList<Branch> getBranchList();
     ArrayList<Car> getCarList();

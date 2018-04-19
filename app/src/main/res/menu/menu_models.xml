@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.chizkiyahuandchaskyh.takeandgo.controller.ModelsActivity">
+    <item
+        android:id="@+id/add_Model"
+        android:orderInCategory="100"
+        android:title="@string/add"
+        android:onClick="onClickAddModel"
+        app:showAsAction="never" />
+
+</menu>

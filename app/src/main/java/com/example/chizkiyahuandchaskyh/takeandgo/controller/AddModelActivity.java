@@ -40,8 +40,10 @@ public class AddModelActivity extends AppCompatActivity {
         for (CarModel.GEAR_BOX gear_box: CarModel.GEAR_BOX.values()) {
             gearBoxEnum.add(gear_box.toString());
         }
+
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item,gearBoxEnum);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+        model_add_gear_box.setAdapter(spinnerArrayAdapter);
 
 
 
@@ -63,6 +65,7 @@ public class AddModelActivity extends AppCompatActivity {
         }
         catch (Exception e){
             Log.e(Constants.Log.TAG,e.getMessage());
+            int test = 5;
         }
 
         startActivity(new Intent(AddModelActivity.this, ModelsActivity.class));
