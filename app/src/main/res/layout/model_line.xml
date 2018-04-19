@@ -49,9 +49,8 @@
             android:id="@+id/model_line_seating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            tools:text="111" />
-        <Spinner
+            android:textSize="20sp" />
+        <TextView
             android:id="@+id/model_line_gear_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

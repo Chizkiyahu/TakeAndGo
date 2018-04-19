@@ -38,4 +38,9 @@
     <string name="first_name">first name</string>
     <string name="last_name">Last Name</string>
     <string name="email">email</string>
+    <string name="manufacturer_name">manufacturer name</string>
+    <string name="model_name">model name</string>
+    <string name="engine_capacity">engine capacity</string>
+    <string name="seating">seating</string>
+    <string name="gear_box">gear box</string>
 </resources>

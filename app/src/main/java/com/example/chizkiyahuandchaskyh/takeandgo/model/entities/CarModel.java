@@ -1,14 +1,22 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
+import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.BackendFactory;
+
 public class CarModel {
 
-    public CarModel(int codeModel, String manufacturerName, String modelName, int engineCapacity, GEAR_BOX gearBox, int seating) {
-        this.codeModel = codeModel;
+    public CarModel(String manufacturerName, String modelName, int engineCapacity, GEAR_BOX gearBox, int seating) {
         this.manufacturerName = manufacturerName;
         this.modelName = modelName;
         this.engineCapacity = engineCapacity;
         this.gearBox = gearBox;
         this.seating = seating;
+        this.codeModel = 1;
+        for (CarModel carModel: BackendFactory.getDataSource().getCarModelList()) {
+            if (carModel.getCodeModel() >= this.codeModel){
+                this.codeModel = carModel.getCodeModel() + 1;
+            }
+        }
+
     }
 
     protected int codeModel;
@@ -18,7 +26,7 @@ public class CarModel {
     protected GEAR_BOX gearBox;
     protected int seating;
 
-    enum GEAR_BOX{
+    public enum GEAR_BOX{
         MANUAL,
         AUTOMATIC
     }
