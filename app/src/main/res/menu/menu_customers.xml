@@ -1,12 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.chizkiyahuandchaskyh.takeandgo.controller.BranchsActivity">
+    tools:context="com.example.chizkiyahuandchaskyh.takeandgo.controller.CustomersActivity">
     <item
         android:id="@+id/add_branch"
         android:orderInCategory="100"
         android:title="@string/add"
-        android:onClick="onClickAddBranch"
+        android:onClick="onClickAddCustomer"
         app:showAsAction="never" />
 
 </menu>

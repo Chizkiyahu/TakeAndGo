@@ -2,18 +2,19 @@ package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
 public class CarModel {
 
-    public CarModel(int codeModel, String companyName, String modelName, String engineCapacity, GEAR_BOX gearBox, int seating) {
+    public CarModel(int codeModel, String manufacturerName, String modelName, int engineCapacity, GEAR_BOX gearBox, int seating) {
         this.codeModel = codeModel;
-        this.companyName = companyName;
+        this.manufacturerName = manufacturerName;
         this.modelName = modelName;
         this.engineCapacity = engineCapacity;
         this.gearBox = gearBox;
         this.seating = seating;
     }
+
     protected int codeModel;
-    protected String companyName;
+    protected String manufacturerName;
     protected String modelName;
-    protected String engineCapacity;
+    protected int engineCapacity;
     protected GEAR_BOX gearBox;
     protected int seating;
 
@@ -30,12 +31,12 @@ public class CarModel {
         this.codeModel = codeModel;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getManufacturerName() {
+        return manufacturerName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setManufacturerName(String manufacturerName) {
+        this.manufacturerName = manufacturerName;
     }
 
     public String getModelName() {
@@ -46,11 +47,11 @@ public class CarModel {
         this.modelName = modelName;
     }
 
-    public String getEngineCapacity() {
+    public int getEngineCapacity() {
         return engineCapacity;
     }
 
-    public void setEngineCapacity(String engineCapacity) {
+    public void setEngineCapacity(int engineCapacity) {
         this.engineCapacity = engineCapacity;
     }
 

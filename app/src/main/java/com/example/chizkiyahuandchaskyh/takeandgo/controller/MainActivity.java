@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Test;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,5 +41,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickCustomers(View view) {
+        startActivity(new Intent(MainActivity.this, CustomersActivity.class));
+    }
+
+    public void onClickModels(View view) {
+        startActivity(new Intent(MainActivity.this, ModelsActivity.class));
+    }
+
+    public void onClickCars(View view) {
+    }
+
+
+    public void onClickAdminUsers(View view) {
     }
 }

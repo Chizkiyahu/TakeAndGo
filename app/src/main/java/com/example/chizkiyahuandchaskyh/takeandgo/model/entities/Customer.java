@@ -12,13 +12,12 @@ public class Customer {
     protected String email ;
     protected  CreditCard creditCard;
 
-    public Customer(String lastName, String firstName, int id, Long phoneNumber, String email, CreditCard creditCard) {
+    public Customer(String lastName, String firstName, int id, Long phoneNumber, String email) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.id = id;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.creditCard = creditCard;
     }
 
     public String getLastName() {

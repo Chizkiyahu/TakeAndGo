@@ -43,11 +43,11 @@ public class AddBranchActivity extends AppCompatActivity {
     }
 
     void inti(){
-        branch_country = (EditText) findViewById(R.id.branch_country);
-        branch_city = (EditText) findViewById(R.id.branch_city);
-        branch_street = (EditText) findViewById(R.id.branch_street);
-        branch_houseNum = (EditText) findViewById(R.id.branch_houseNum);
-        branch_num_parking_spaces = (EditText) findViewById(R.id.branch_num_parking_spaces);
+        branch_country = findViewById(R.id.branch_country);
+        branch_city = findViewById(R.id.branch_city);
+        branch_street = findViewById(R.id.branch_street);
+        branch_houseNum = findViewById(R.id.branch_houseNum);
+        branch_num_parking_spaces = findViewById(R.id.branch_num_parking_spaces);
     }
 
 

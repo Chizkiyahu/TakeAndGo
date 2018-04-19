@@ -65,7 +65,7 @@ public class DatabaseList implements  DataSource  {
     }
 
     @Override
-    public void addBranch(Branch branch) throws Exception {
+    public void addBranch(Branch branch) {
 
         branchMap.put(branch.getId(), branch);
 
@@ -102,9 +102,7 @@ public class DatabaseList implements  DataSource  {
             throw new Exception("the password cant be empty");
         }
         if(usersPassMap.containsKey(username)){
-            if(usersPassMap.get(username).equals(password)){
-                return true;
-            }
+            return usersPassMap.get(username).equals(password);
         }
 
     return false;
@@ -115,10 +113,7 @@ public class DatabaseList implements  DataSource  {
         if (username.equals("") || username.equals(null) ){
             throw new Exception("the username cant be empty");
         }
-        if(usersPassMap.containsKey(username)) {
-            return false;
-        }
-        return true;
+        return !usersPassMap.containsKey(username);
     }
 
     @Override

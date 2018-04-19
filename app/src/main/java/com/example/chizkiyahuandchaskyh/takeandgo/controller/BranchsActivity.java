@@ -26,10 +26,9 @@ public class BranchsActivity extends AppCompatActivity {
 
 
     protected ArrayList<Branch> branchArrayList = new ArrayList<>();
-    protected ArrayList<Branch>  testBranchArrayList = new ArrayList<>();
     protected ArrayAdapter<Branch> branchArrayAdapter = null;
     protected ListView list_branchs;
-    protected EditText branch_line_city,branch_line_street,branch_line_id;
+    protected EditText branch_line_address,branch_line_num_parking_spaces,branch_line_id;
     protected DataSource dataSource  = BackendFactory.getDataSource();
 
     @Override
@@ -37,7 +36,6 @@ public class BranchsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_branchs);
         Init();
-
         CreateAdapter();
     }
 
@@ -64,15 +62,18 @@ public class BranchsActivity extends AppCompatActivity {
                     convertView = View.inflate( BranchsActivity.this,R.layout.branch_line,null );
                 }
 
-                Branch branch = (Branch) this.getItem(position);
-                TextView branch_line_city = (TextView) convertView.findViewById( R.id.branch_line_city );
-                TextView branch_line_street = (TextView) convertView.findViewById( R.id.branch_line_street );
-                TextView branch_line_id = (TextView) convertView.findViewById( R.id.branch_line_id );
+                Branch branch = this.getItem(position);
+                TextView branch_line_address = convertView.findViewById( R.id.branch_line_address );
+                TextView branch_line_num_parking_spaces = convertView.findViewById( R.id.branch_line_num_parking_spaces );
+                TextView branch_line_id = convertView.findViewById( R.id.branch_line_id );
 
 
-                branch_line_city.setText( "City :" + branch.getAddress().getCity().toString() );
-                branch_line_street.setText( "km: " + branch.getAddress().getStreet().toString() );
-                branch_line_id.setText( ",Total Seats:" + branch.getId() );
+                branch_line_address.setText( "Address: " +  branch.getAddress().getStreet() + " " +
+                        branch.getAddress().getHouseNum() + " "  +
+                        branch.getAddress().getCity().toString() + " " +
+                        branch.getAddress().getCountry());
+                branch_line_num_parking_spaces.setText(" Parking spaces :"  +branch.getNumParkingSpaces() );
+                branch_line_id.setText( " Branch ID: " + branch.getId() );
                 return convertView;
             }
         };
@@ -84,6 +85,8 @@ public class BranchsActivity extends AppCompatActivity {
 
     void  Init(){
         list_branchs = findViewById(R.id.list_branchs);
+        setTitle("Branchs");
+
     }
 
 }

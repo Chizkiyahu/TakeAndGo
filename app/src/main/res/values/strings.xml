@@ -34,4 +34,8 @@
     <string name="add">add</string>
     <string name="id">id</string>
     <string name="branch_number">Branch number</string>
+    <string name="ID">ID</string>
+    <string name="first_name">first name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">email</string>
 </resources>

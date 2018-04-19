@@ -39,18 +39,21 @@
             android:id="@+id/car_models_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onClickModels"
             android:text="Car models" />
 
         <Button
             android:id="@+id/cars_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onClickCars"
             android:text="Cars" />
 
         <Button
             android:id="@+id/admin_users_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onClickAdminUsers"
             android:text="Admin_users" />
 
         <Button

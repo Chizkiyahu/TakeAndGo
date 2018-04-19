@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="368dp"
-        android:layout_height="87dp"
+        android:layout_height="177dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -22,19 +22,37 @@
 
 
         <TextView
-            android:id="@+id/branch_line_id"
+            android:id="@+id/model_line_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/branch_line_address"
+            android:id="@+id/model_line_manufacturer_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/branch_line_num_parking_spaces"
+            android:id="@+id/model_line_model_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/model_line_engine_capacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/model_line_seating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            tools:text="111" />
+        <Spinner
+            android:id="@+id/model_line_gear_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />

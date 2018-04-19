@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="368dp"
-        android:layout_height="87dp"
+        android:layout_height="143dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -22,24 +22,34 @@
 
 
         <TextView
-            android:id="@+id/branch_line_id"
+            android:id="@+id/customer_line_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/branch_line_address"
+            android:id="@+id/customer_line_lastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/branch_line_num_parking_spaces"
+            android:id="@+id/customer_line_firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/customer_line_phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/customer_line_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
