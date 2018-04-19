@@ -23,6 +23,10 @@
         </activity>
         <activity android:name=".controller.LoginActivity" />
         <activity android:name=".controller.BranchsActivity" />
+        <activity
+            android:name=".controller.CreditCardInfoActivity"
+            android:label="@string/title_activity_credit_card_info"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
