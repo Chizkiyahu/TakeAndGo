@@ -24,12 +24,15 @@
             android:id="@+id/branchs_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Branchs" />
+            android:text="Branchs"
+            android:onClick="onClickBranchs"
+            />
 
         <Button
             android:id="@+id/customers_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onClickCustomers"
             android:text="Customers" />
 
         <Button

@@ -15,9 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
         checkLogin();
     }
 
@@ -40,4 +37,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void onClickBranchs(View view) {
+        startActivity(new Intent(MainActivity.this, BranchsActivity.class));
+    }
+
+    public void onClickCustomers(View view) {
+    }
 }

@@ -3,17 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.chizkiyahuandchaskyh.takeandgo.controller.BranchsActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/add_branch"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/add_branch"
+        android:onClick="onClickAddBranch"
         app:showAsAction="never" />
-    <item
-        android:orderInCategory="101"
-        android:title="Item" />
-    <item
-        android:orderInCategory="102"
-        android:title="Item" />
-    <item
-        android:orderInCategory="103"
-        android:title="Item" />
+
 </menu>

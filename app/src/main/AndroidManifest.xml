@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".controller.LoginActivity" />
         <activity android:name=".controller.BranchsActivity" />
+        <activity android:name=".controller.AddBranchActivity"></activity>
     </application>
 
 </manifest>

@@ -65,23 +65,30 @@ public class DatabaseList implements  DataSource  {
     }
 
     @Override
+    public void addBranch(Branch branch) throws Exception {
+
+        branchMap.put(branch.getId(), branch);
+
+    }
+
+    @Override
     public ArrayList<CarModel> getCarModelList() {
-       return (ArrayList<CarModel>) carModelMap.values();
+        return new ArrayList<>(carModelMap.values());
     }
 
     @Override
     public ArrayList<Customer> getListCustomer() {
-        return (ArrayList<Customer>) customerMap.values();
+        return new ArrayList<>(customerMap.values());
     }
 
     @Override
     public ArrayList<Branch> getBranchList() {
-        return (ArrayList<Branch>) branchMap.values();
+        return new ArrayList<>(branchMap.values());
     }
 
     @Override
     public ArrayList<Car> getCarList() {
-        return (ArrayList<Car>) carMap.values();
+        return new ArrayList<>(carMap.values());
     }
 
 

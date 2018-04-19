@@ -3,6 +3,14 @@ package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 public class Address {
 
     protected String country;
+
+    public Address(String country, String city, String street, int houseNum) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.houseNum = houseNum;
+    }
+
     protected String city;
     protected String street;
     protected int houseNum;
@@ -10,14 +18,6 @@ public class Address {
     protected double longitude;
 
 
-    public Address(String country, String city, String street, int houseNum, double latitude, double longitude) {
-        this.country = country;
-        this.city = city;
-        this.street = street;
-        this.houseNum = houseNum;
-        Latitude = latitude;
-        this.longitude = longitude;
-    }
 
 
     @Override

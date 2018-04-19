@@ -14,6 +14,9 @@ public interface DataSource {
     void addCustomer(Customer customer) throws Exception;
     void addCarModle(CarModel  carModel) throws Exception;
     void addCar(Car car) throws Exception;
+    void addBranch(Branch branch) throws Exception;
+
+
 
     Collection<CarModel> getCarModelList();
     ArrayList<Customer> getListCustomer();
