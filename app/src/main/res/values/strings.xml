@@ -43,4 +43,7 @@
     <string name="engine_capacity">engine capacity</string>
     <string name="seating">seating</string>
     <string name="gear_box">gear box</string>
+    <string name="car_id">Car ID</string>
+    <string name="km">KM</string>
+    <string name="branch_id">branch ID</string>
 </resources>
