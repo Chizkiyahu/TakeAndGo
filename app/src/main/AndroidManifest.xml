@@ -27,7 +27,9 @@
         <activity android:name=".controller.CustomersActivity" />
         <activity android:name=".controller.ModelsActivity" />
         <activity android:name=".controller.AddCustomerActivity" />
-        <activity android:name=".controller.AddModelActivity"></activity>
+        <activity android:name=".controller.AddModelActivity" />
+        <activity android:name=".controller.CarActivity" />
+        <activity android:name=".controller.AddCarActivity"></activity>
     </application>
 
 </manifest>
