@@ -46,4 +46,6 @@
     <string name="car_id">Car ID</string>
     <string name="km">KM</string>
     <string name="branch_id">branch ID</string>
+    <string name="title_activity_list_view_base">ListViewBaseActivity</string>
+    <string name="branches">Branches</string>
 </resources>

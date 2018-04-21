@@ -22,14 +22,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.LoginActivity" />
-        <activity android:name=".controller.BranchsActivity" />
+        <activity android:name=".controller.BranchesActivity" />
         <activity android:name=".controller.AddBranchActivity" />
         <activity android:name=".controller.CustomersActivity" />
         <activity android:name=".controller.ModelsActivity" />
         <activity android:name=".controller.AddCustomerActivity" />
         <activity android:name=".controller.AddModelActivity" />
         <activity android:name=".controller.AddCarActivity" />
-        <activity android:name=".controller.CarActivity"></activity>
+        <activity android:name=".controller.CarActivity" />
+        <activity
+            android:name=".controller.ListViewBaseActivity"
+            android:label="@string/title_activity_list_view_base"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

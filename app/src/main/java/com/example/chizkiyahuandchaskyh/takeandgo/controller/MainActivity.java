@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickBranchs(View view) {
-        startActivity(new Intent(MainActivity.this, BranchsActivity.class));
+        startActivity(new Intent(MainActivity.this, BranchesActivity.class));
     }
 
     public void onClickCustomers(View view) {

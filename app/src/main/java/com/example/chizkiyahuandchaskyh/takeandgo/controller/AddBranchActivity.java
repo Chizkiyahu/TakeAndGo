@@ -39,7 +39,7 @@ public class AddBranchActivity extends AppCompatActivity {
             Log.e(Constants.Log.TAG,e.getMessage());
         }
 
-        startActivity(new Intent(AddBranchActivity.this, BranchsActivity.class));
+        startActivity(new Intent(AddBranchActivity.this, BranchesActivity.class));
     }
 
     void inti(){
