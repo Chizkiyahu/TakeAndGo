@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickCars(View view) {
-        startActivity(new Intent(MainActivity.this, CarActivity.class));
+        startActivity(new Intent(MainActivity.this, CarsActivity.class));
     }
 
 

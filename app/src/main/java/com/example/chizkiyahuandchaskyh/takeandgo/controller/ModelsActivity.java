@@ -24,18 +24,16 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModelsActivity extends AppCompatActivity {
+public class ModelsActivity extends ListViewBaseActivity {
 
-    protected ArrayList<CarModel> carModelArrayList = new ArrayList<>();
-    protected ArrayAdapter<CarModel> carModelArrayAdapter = null;
-    protected ListView list_carModel;
-    protected EditText model_line_id, model_line_manufacturer_name, model_line_model_name,
-            model_line_engine_capacity,model_line_seating, model_line_gear_box;
-    protected DataSource dataSource  = BackendFactory.getDataSource();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
-
-    private void CreateAdapter() {
-        carModelArrayAdapter = new ArrayAdapter<CarModel>( this, R.layout.model_line, dataSource.getCarModelList()) {
+    @Override
+    protected void createAdapter() {
+        listViewAdapter = new ArrayAdapter<CarModel>( this, R.layout.model_line, dataSource.getCarModelList()) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -60,48 +58,23 @@ public class ModelsActivity extends AppCompatActivity {
                 model_line_seating.setText("Seating :" +  carModel.getSeating());
                 model_line_gear_box.setText("Gear Box : " +  carModel.getGearBox().name().toString().toLowerCase());
 
-
                 return convertView;
             }
         };
-
-        list_carModel.setAdapter( carModelArrayAdapter );
-
-
     }
 
-    void  Init(){
-        list_carModel = findViewById(R.id.list_models);
-        setTitle("Models");
+    @Override
+    protected void onClickCreateNew() {
+        startActivity(new Intent(this, AddModelActivity.class));
+    }
 
+    @Override
+    protected String getActivityTitle() {
+        return getString(R.string.car_models);
     }
 
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this, MainActivity.class));
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_models);
-        Init();
-        CreateAdapter();
-    }
-
-
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_models, menu);
-        return true;
-    }
-
-
-    public void onClickAddModel(MenuItem item) {
-        startActivity(new Intent(this, AddModelActivity.class));
     }
 }

@@ -47,8 +47,8 @@ public class BranchesActivity extends ListViewBaseActivity {
                 TextView branchIDView = convertView.findViewById( R.id.branch_line_id );
 
                 addressView.setText( "Address: " +  branch.getAddress().toString());
-                numberOfParkingSpacesView.setText(" Parking spaces :"  + branch.getNumParkingSpaces() );
-                branchIDView.setText( " Branch ID: " + branch.getId() );
+                numberOfParkingSpacesView.setText("Parking spaces :"  + branch.getNumParkingSpaces() );
+                branchIDView.setText( "Branch ID: " + branch.getId() );
 
                 return convertView;
             }

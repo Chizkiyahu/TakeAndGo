@@ -23,37 +23,16 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 
 import java.util.ArrayList;
 
-public class CustomersActivity extends AppCompatActivity {
-
-
-    protected ArrayList<Customer> customerArrayList = new ArrayList<>();
-    protected ArrayAdapter<Customer> customeArrayAdapter = null;
-    protected ListView list_customer;
-    protected EditText customer_line_id, customer_line_lastName, customer_line_firstName,customer_line_phoneNumber,customer_line_email;
-    protected DataSource dataSource  = BackendFactory.getDataSource();
-
+public class CustomersActivity extends ListViewBaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customers);
-        Init();
-        CreateAdapter();
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_customers, menu);
-        return true;
-    }
-
-    public void onClickAddCustomer(MenuItem item) {
-        startActivity(new Intent(this, AddCustomerActivity.class));
-    }
-
-    private void CreateAdapter() {
-        customeArrayAdapter = new ArrayAdapter<Customer>( this, R.layout.customer_line, dataSource.getListCustomer()) {
+    protected void createAdapter() {
+        listViewAdapter = new ArrayAdapter<Customer>( this, R.layout.customer_line, dataSource.getListCustomer()) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -80,16 +59,17 @@ public class CustomersActivity extends AppCompatActivity {
                 return convertView;
             }
         };
-
-        list_customer.setAdapter( customeArrayAdapter );
-
-
     }
 
-    void  Init(){
-        list_customer = findViewById(R.id.list_customers);
-        setTitle("Customer");
 
+    @Override
+    protected void onClickCreateNew() {
+        startActivity(new Intent(this, AddCustomerActivity.class));
+    }
+
+    @Override
+    protected String getActivityTitle() {
+        return getString(R.string.Customers);
     }
 
     @Override

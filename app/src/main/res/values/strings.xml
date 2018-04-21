@@ -48,4 +48,7 @@
     <string name="branch_id">branch ID</string>
     <string name="title_activity_list_view_base">ListViewBaseActivity</string>
     <string name="branches">Branches</string>
+    <string name="Cars">Cars</string>
+    <string name="Customers">Customers</string>
+    <string name="car_models">Car Models</string>
 </resources>

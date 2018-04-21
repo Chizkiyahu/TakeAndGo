@@ -1,19 +1,13 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
 import android.content.Intent;
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.BackendFactory;
@@ -21,12 +15,9 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
 
 import java.util.ArrayList;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class AddCarActivity extends AppCompatActivity {
 
@@ -73,7 +64,7 @@ public class AddCarActivity extends AppCompatActivity {
             Log.e(Constants.Log.TAG,e.getMessage());
         }
 
-        startActivity(new Intent(this, CarActivity.class));
+        startActivity(new Intent(this, CarsActivity.class));
     }
 
 

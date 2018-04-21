@@ -29,7 +29,7 @@
         <activity android:name=".controller.AddCustomerActivity" />
         <activity android:name=".controller.AddModelActivity" />
         <activity android:name=".controller.AddCarActivity" />
-        <activity android:name=".controller.CarActivity" />
+        <activity android:name=".controller.CarsActivity" />
         <activity
             android:name=".controller.ListViewBaseActivity"
             android:label="@string/title_activity_list_view_base"
