@@ -44,6 +44,7 @@
             android:ems="10"
             android:hint="@string/branch_id"
             android:inputType="numberSigned" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="10px" />
