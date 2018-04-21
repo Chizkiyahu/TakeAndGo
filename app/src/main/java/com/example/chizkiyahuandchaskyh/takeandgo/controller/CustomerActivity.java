@@ -14,7 +14,7 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
 
 public class CustomerActivity extends AppCompatActivity {
 
-    protected EditText customer_add_id, customer_add_first_name, customer_add_last_name,customer_add_phone,customer_add_email;
+    protected EditText idView, firstNameView, lastNameView, phoneView, emailView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,22 +24,22 @@ public class CustomerActivity extends AppCompatActivity {
     }
 
     void inti(){
-        customer_add_id = findViewById(R.id.customer_add_id);
-        customer_add_first_name = findViewById(R.id.customer_add_first_name);
-        customer_add_last_name = findViewById(R.id.customer_add_last_name);
-        customer_add_phone = findViewById(R.id.customer_add_phone);
-        customer_add_email = findViewById(R.id.customer_add_email);
-        customer_add_email = findViewById(R.id.customer_add_email);
+        idView = findViewById(R.id.customer_add_id);
+        firstNameView = findViewById(R.id.customer_add_first_name);
+        lastNameView = findViewById(R.id.customer_add_last_name);
+        phoneView = findViewById(R.id.customer_add_phone);
+        emailView = findViewById(R.id.customer_add_email);
+        emailView = findViewById(R.id.customer_add_email);
     }
 
 
     public void onClickAddCustomer(View view) {
         try {
-            BackendFactory.getDataSource().addCustomer(new Customer(customer_add_last_name.getText().toString(),
-                    customer_add_first_name.getText().toString(),
-                    Integer.parseInt( customer_add_id.getText().toString()),
-                     Long.parseLong(customer_add_phone.getText().toString()),
-                    customer_add_email.getText().toString()));
+            BackendFactory.getDataSource().addCustomer(new Customer(lastNameView.getText().toString(),
+                    firstNameView.getText().toString(),
+                    Integer.parseInt( idView.getText().toString()),
+                     Long.parseLong(phoneView.getText().toString()),
+                    emailView.getText().toString()));
 
         }
         catch (Exception e){

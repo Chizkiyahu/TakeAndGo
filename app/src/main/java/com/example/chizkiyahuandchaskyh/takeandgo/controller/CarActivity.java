@@ -22,10 +22,10 @@ import java.util.ArrayList;
 public class CarActivity extends AppCompatActivity {
 
 
-    protected EditText add_car_line_km, add_car_line_id;
-    protected Spinner add_car_line_branch_id, add_car_line_model_id;
+    protected EditText kmView, idView;
+    protected Spinner branchIDView, modelIDView;
     protected DataSource dataSource = BackendFactory.getDataSource();
-    protected ArrayList<String> branchsStringArrayList = new ArrayList<>();
+    protected ArrayList<String> branchesStringArrayList = new ArrayList<>();
     protected ArrayList<String> carModelStringArrayList = new ArrayList<>();
 
 
@@ -42,22 +42,22 @@ public class CarActivity extends AppCompatActivity {
     public void onClickAdd(View view) {
 
         try {
-            CarModel carModleId = null;
+            CarModel carModelId = null;
             int branchID = 0;
             for (CarModel carModel: dataSource.getCarModelList()) {
-                if (add_car_line_branch_id.getSelectedItem().toString().equals(carModel.getManufacturerName() + " " + carModel.getModelName())){
-                    carModleId = carModel;
+                if (branchIDView.getSelectedItem().toString().equals(carModel.getManufacturerName() + " " + carModel.getModelName())){
+                    carModelId = carModel;
                 }
             }
             for (Branch branch : dataSource.getBranchList()){
-                if (add_car_line_model_id.getSelectedItem().toString().equals(branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet())){
+                if (modelIDView.getSelectedItem().toString().equals(branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet())){
                     branchID = branch.getId();
                 }
             }
-          dataSource.addCar(new Car(Integer.parseInt( add_car_line_id.getText().toString()),
+          dataSource.addCar(new Car(Integer.parseInt( idView.getText().toString()),
                   branchID,
-                  Integer.parseInt( add_car_line_km.getText().toString()),
-                  carModleId));
+                  Integer.parseInt( kmView.getText().toString()),
+                  carModelId));
 
         }
         catch (Exception e){
@@ -71,29 +71,29 @@ public class CarActivity extends AppCompatActivity {
 
 
     void inti() {
-        add_car_line_km = findViewById(R.id.add_car_line_km);
-        add_car_line_id = findViewById(R.id.add_car_line_id);
-        add_car_line_branch_id = findViewById(R.id.add_car_line_branch_id);
-        add_car_line_model_id = findViewById(R.id.add_car_line_model_id);
+        kmView = findViewById(R.id.add_car_line_km);
+        idView = findViewById(R.id.add_car_line_id);
+        branchIDView = findViewById(R.id.add_car_line_branch_id);
+        modelIDView = findViewById(R.id.add_car_line_model_id);
 
 
 
 
         for (Branch branch : dataSource.getBranchList()) {
-            branchsStringArrayList.add(branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet());
+            branchesStringArrayList.add(branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet());
         }
 
-        ArrayAdapter<String> branchIdSpinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, branchsStringArrayList);
+        ArrayAdapter<String> branchIdSpinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, branchesStringArrayList);
         branchIdSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
 
-        add_car_line_branch_id.setAdapter(branchIdSpinnerArrayAdapter);
+        branchIDView.setAdapter(branchIdSpinnerArrayAdapter);
 
         for (CarModel carModel : dataSource.getCarModelList()) {
                 carModelStringArrayList.add(carModel.getManufacturerName() + " " + carModel.getModelName());
         }
         ArrayAdapter<String> carModelSpinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, carModelStringArrayList);
         carModelSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-        add_car_line_model_id.setAdapter(carModelSpinnerArrayAdapter);
+        modelIDView.setAdapter(carModelSpinnerArrayAdapter);
 
 
     }

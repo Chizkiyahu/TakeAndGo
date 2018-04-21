@@ -19,17 +19,17 @@ import java.util.ArrayList;
 
 public class ModelActivity extends AppCompatActivity {
 
-    protected EditText model_add_manufacturer_name, model_add_model_name, model_add_engine_capacity, model_add_seating;
-    protected Spinner model_add_gear_box;
+    protected EditText manufacturerNameView, modelNameView, engineCapacityView, seatingView;
+    protected Spinner gearBoxSpinnerView;
     DataSource dataSource ;
 
 
     void inti(){
-        model_add_manufacturer_name = findViewById(R.id.model_add_manufacturer_name);
-        model_add_model_name = findViewById(R.id.model_add_model_name);
-        model_add_engine_capacity = findViewById(R.id.model_add_engine_capacity);
-        model_add_seating = findViewById(R.id.model_add_seating);
-        model_add_gear_box = findViewById(R.id.model_add_gear_box);
+        manufacturerNameView = findViewById(R.id.model_add_manufacturer_name);
+        modelNameView = findViewById(R.id.model_add_model_name);
+        engineCapacityView = findViewById(R.id.model_add_engine_capacity);
+        seatingView = findViewById(R.id.model_add_seating);
+        gearBoxSpinnerView = findViewById(R.id.model_add_gear_box);
         dataSource = BackendFactory.getDataSource();
         ArrayList<String> gearBoxEnum = new ArrayList<>();
         for (CarModel.GEAR_BOX gear_box: CarModel.GEAR_BOX.values()) {
@@ -38,7 +38,7 @@ public class ModelActivity extends AppCompatActivity {
 
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item,gearBoxEnum);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-        model_add_gear_box.setAdapter(spinnerArrayAdapter);
+        gearBoxSpinnerView.setAdapter(spinnerArrayAdapter);
 
 
 
@@ -52,11 +52,11 @@ public class ModelActivity extends AppCompatActivity {
 
     public void onClickAddModel(View view) {
         try {
-            dataSource.addCarModle(new CarModel(model_add_manufacturer_name.getText().toString(),
-                    model_add_model_name.getText().toString(),
-                    Integer.parseInt(model_add_engine_capacity.getText().toString()),
-                    CarModel.GEAR_BOX.valueOf(model_add_gear_box.getSelectedItem().toString()),
-                    Integer.parseInt(model_add_seating.getText().toString())));
+            dataSource.addCarModle(new CarModel(manufacturerNameView.getText().toString(),
+                    modelNameView.getText().toString(),
+                    Integer.parseInt(engineCapacityView.getText().toString()),
+                    CarModel.GEAR_BOX.valueOf(gearBoxSpinnerView.getSelectedItem().toString()),
+                    Integer.parseInt(seatingView.getText().toString())));
         }
         catch (Exception e){
             Log.e(Constants.Log.TAG,e.getMessage());

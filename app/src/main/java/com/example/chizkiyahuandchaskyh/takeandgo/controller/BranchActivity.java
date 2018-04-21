@@ -15,7 +15,7 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
 
 public class BranchActivity extends AppCompatActivity {
 
-    protected EditText branch_country, branch_city, branch_street, branch_houseNum, branch_num_parking_spaces;
+    protected EditText countryView, cityView, streetView, houseNumberView, numberOfParkingSpacesView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,11 @@ public class BranchActivity extends AppCompatActivity {
     public void onClickAdd(View view)  {
         try {
             BackendFactory.getDataSource().addBranch(
-                    new Branch(Integer.parseInt(branch_num_parking_spaces.getText().toString()),
-                            new Address(branch_country.getText().toString(),
-                                    branch_city.getText().toString(),
-                                    branch_street.getText().toString(),
-                                    Integer.parseInt(branch_houseNum.getText().toString()))));
+                    new Branch(Integer.parseInt(numberOfParkingSpacesView.getText().toString()),
+                            new Address(countryView.getText().toString(),
+                                    cityView.getText().toString(),
+                                    streetView.getText().toString(),
+                                    Integer.parseInt(houseNumberView.getText().toString()))));
 
         }
         catch (Exception e){
@@ -42,11 +42,11 @@ public class BranchActivity extends AppCompatActivity {
     }
 
     void init(){
-        branch_country = findViewById(R.id.branch_country);
-        branch_city = findViewById(R.id.branch_city);
-        branch_street = findViewById(R.id.branch_street);
-        branch_houseNum = findViewById(R.id.branch_houseNum);
-        branch_num_parking_spaces = findViewById(R.id.branch_num_parking_spaces);
+        countryView = findViewById(R.id.branch_country);
+        cityView = findViewById(R.id.branch_city);
+        streetView = findViewById(R.id.branch_street);
+        houseNumberView = findViewById(R.id.branch_houseNum);
+        numberOfParkingSpacesView = findViewById(R.id.branch_num_parking_spaces);
     }
 
 }
