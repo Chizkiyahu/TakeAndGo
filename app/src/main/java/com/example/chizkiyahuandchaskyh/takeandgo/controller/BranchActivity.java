@@ -13,16 +13,15 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Address;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
 
-public class AddBranchActivity extends AppCompatActivity {
+public class BranchActivity extends AppCompatActivity {
 
     protected EditText branch_country, branch_city, branch_street, branch_houseNum, branch_num_parking_spaces;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_branch);
-        inti();
+        setContentView(R.layout.activity_branch);
+        init();
     }
 
     public void onClickAdd(View view)  {
@@ -39,16 +38,15 @@ public class AddBranchActivity extends AppCompatActivity {
             Log.e(Constants.Log.TAG,e.getMessage());
         }
 
-        startActivity(new Intent(AddBranchActivity.this, BranchesActivity.class));
+        startActivity(new Intent(BranchActivity.this, BranchesActivity.class));
     }
 
-    void inti(){
+    void init(){
         branch_country = findViewById(R.id.branch_country);
         branch_city = findViewById(R.id.branch_city);
         branch_street = findViewById(R.id.branch_street);
         branch_houseNum = findViewById(R.id.branch_houseNum);
         branch_num_parking_spaces = findViewById(R.id.branch_num_parking_spaces);
     }
-
 
 }

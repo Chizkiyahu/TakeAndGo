@@ -47,9 +47,4 @@ public class Car  {
         this.km = km;
     }
 
-
-
-
-
-
 }

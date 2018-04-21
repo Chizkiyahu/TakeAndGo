@@ -3,24 +3,14 @@ package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.BackendFactory;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
-
-import java.util.ArrayList;
 
 public class BranchesActivity extends ListViewBaseActivity {
 
@@ -30,8 +20,8 @@ public class BranchesActivity extends ListViewBaseActivity {
     }
 
     @Override
-    protected void createAdapter() {
-        listViewAdapter = new ArrayAdapter<Branch>( this, R.layout.branch_line, dataSource.getBranchList()) {
+    protected ArrayAdapter getListViewAdapter() {
+        return new ArrayAdapter<Branch>( this, R.layout.branch_line, dataSource.getBranchList()) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -47,7 +37,7 @@ public class BranchesActivity extends ListViewBaseActivity {
                 TextView branchIDView = convertView.findViewById( R.id.branch_line_id );
 
                 addressView.setText( "Address: " +  branch.getAddress().toString());
-                numberOfParkingSpacesView.setText("Parking spaces :"  + branch.getNumParkingSpaces() );
+                numberOfParkingSpacesView.setText("Parking spaces:"  + branch.getNumParkingSpaces() );
                 branchIDView.setText( "Branch ID: " + branch.getId() );
 
                 return convertView;
@@ -57,7 +47,7 @@ public class BranchesActivity extends ListViewBaseActivity {
 
     @Override
     protected void onClickCreateNew() {
-        startActivity(new Intent(this, AddBranchActivity.class));
+        startActivity(new Intent(this, BranchActivity.class));
     }
 
     @Override

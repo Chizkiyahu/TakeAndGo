@@ -12,17 +12,12 @@ import android.widget.Spinner;
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.BackendFactory;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-public class AddModelActivity extends AppCompatActivity {
+public class ModelActivity extends AppCompatActivity {
 
     protected EditText model_add_manufacturer_name, model_add_model_name, model_add_engine_capacity, model_add_seating;
     protected Spinner model_add_gear_box;
@@ -51,7 +46,7 @@ public class AddModelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_model);
+        setContentView(R.layout.activity_model);
         inti();
     }
 
@@ -68,7 +63,7 @@ public class AddModelActivity extends AppCompatActivity {
             int test = 5;
         }
 
-        startActivity(new Intent(AddModelActivity.this, ModelsActivity.class));
+        startActivity(new Intent(ModelActivity.this, ModelsActivity.class));
 
     }
 }

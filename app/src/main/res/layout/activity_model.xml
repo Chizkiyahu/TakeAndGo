@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.AddCarActivity">
+    tools:context=".controller.ModelActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,46 +23,51 @@
             android:layout_height="100px" />
 
         <EditText
-            android:id="@+id/add_car_line_id"
+            android:id="@+id/model_add_manufacturer_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/car_id"
-            android:inputType="numberSigned" />
+            android:hint="@string/manufacturer_name"
+            android:inputType="textAutoComplete" />
 
         <EditText
-            android:id="@+id/add_car_line_km"
+            android:id="@+id/model_add_model_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/km"
-            android:inputType="numberSigned" />
+            android:hint="@string/model_name"
+            android:inputType="textPersonName" />
 
-        <Spinner
-            android:id="@+id/add_car_line_branch_id"
+        <EditText
+            android:id="@+id/model_add_engine_capacity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/branch_id"
-            android:inputType="numberSigned" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10px" />
+            android:hint="@string/engine_capacity"
+            android:inputType="textPersonName" />
 
-        <Spinner
-            android:id="@+id/add_car_line_model_id"
+        <EditText
+            android:id="@+id/model_add_seating"
             style="@android:style/Widget.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Model ID"
-            android:inputType="numberSigned" />
+            android:hint="@string/seating"
+            android:inputType="number" />
 
-        <Button
-            android:id="@+id/add_car_add_button"
+        <Spinner
+            android:id="@+id/model_add_gear_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onClickAdd"
+            android:ems="10"
+            android:hint="@string/gear_box"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/model_add_buttun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAddModel"
             android:text="@string/add" />
 
 

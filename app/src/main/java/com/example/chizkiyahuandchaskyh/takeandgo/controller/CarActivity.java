@@ -19,7 +19,7 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
 
 import java.util.ArrayList;
 
-public class AddCarActivity extends AppCompatActivity {
+public class CarActivity extends AppCompatActivity {
 
 
     protected EditText add_car_line_km, add_car_line_id;
@@ -35,7 +35,7 @@ public class AddCarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_car);
+        setContentView(R.layout.activity_car);
         inti();
     }
 

@@ -9,19 +9,17 @@ import android.widget.EditText;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.BackendFactory;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Address;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
 
-public class AddCustomerActivity extends AppCompatActivity {
+public class CustomerActivity extends AppCompatActivity {
 
     protected EditText customer_add_id, customer_add_first_name, customer_add_last_name,customer_add_phone,customer_add_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_customer);
+        setContentView(R.layout.activity_customer);
         inti();
     }
 
@@ -48,6 +46,6 @@ public class AddCustomerActivity extends AppCompatActivity {
             Log.e(Constants.Log.TAG,e.getMessage());
         }
 
-        startActivity(new Intent(AddCustomerActivity.this, CustomersActivity.class));
+        startActivity(new Intent(CustomerActivity.this, CustomersActivity.class));
     }
 }
