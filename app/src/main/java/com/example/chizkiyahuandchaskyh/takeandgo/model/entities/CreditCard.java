@@ -1,8 +1,9 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CreditCard{
+public class CreditCard implements Serializable {
 
     public enum Issuer {
         MASTER_CARD {
@@ -32,9 +33,10 @@ public class CreditCard{
     private Issuer issuer;
 
     public CreditCard(String digits, Issuer issuer, Date expiration, String cvv) {
-        this.digits = this.digits;
+        this.digits = digits;
         this.expiration = expiration;
         this.cvv = cvv;
+        this.issuer = issuer;
     }
 
     public String getDigits() {
@@ -99,13 +101,13 @@ public class CreditCard{
     }
 
     private Boolean checkIINValidityForAmericanExpress() {
-        String firstTwoDigits = digits.substring(0, 1);
+        String firstTwoDigits = digits.substring(0, 2);
         return firstTwoDigits.equals("34") || firstTwoDigits.equals("37");
     }
 
     private Boolean checkIINValidityForMasterCard() {
         try {
-            int firstFourDigits = Integer.parseInt(digits.substring(0, 3));
+            int firstFourDigits = Integer.parseInt(digits.substring(0, 4));
             return (firstFourDigits >= 5100 && firstFourDigits <= 5599) || (firstFourDigits >= 2221 && firstFourDigits <= 2720);
         }
         catch (Exception ex) {
@@ -114,7 +116,7 @@ public class CreditCard{
     }
 
     private Boolean checkIINValidityForVisa() {
-        String firstDigit = digits.substring(0,0);
+        String firstDigit = digits.substring(0,1);
         return firstDigit.equals("4");
     }
 

@@ -1,5 +1,6 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,14 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CreditCard;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 
 public class CustomersActivity extends ListViewBaseActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     protected ArrayAdapter getListViewAdapter() {
@@ -58,7 +55,7 @@ public class CustomersActivity extends ListViewBaseActivity {
 
     @Override
     protected String getActivityTitle() {
-        return getString(R.string.Customers);
+        return getString(R.string.customers);
     }
 
     @Override

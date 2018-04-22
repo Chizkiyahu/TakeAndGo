@@ -53,7 +53,7 @@ public class CarsActivity extends ListViewBaseActivity {
 
     @Override
     protected String getActivityTitle() {
-        return getString(R.string.Cars);
+        return getString(R.string.cars);
     }
 
     @Override

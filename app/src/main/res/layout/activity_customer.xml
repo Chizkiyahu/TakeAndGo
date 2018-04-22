@@ -63,6 +63,45 @@
             android:hint="@string/email"
             android:inputType="textEmailAddress" />
 
+        <LinearLayout
+            android:id="@+id/customer_credit_card_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Credit Card"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/customer_credit_card_digits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:inputType="none" />
+
+            <ImageButton
+                android:id="@+id/customer_credit_card_remove_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="@android:color/transparent"
+                android:onClick="onClickRemoveCreditCard"
+                app:srcCompat="@android:drawable/ic_delete" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/customer_credit_card_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAddCreditCard"
+            android:text="Add Credit Card" />
+
         <Button
             android:id="@+id/customer_add_button"
             android:layout_width="match_parent"

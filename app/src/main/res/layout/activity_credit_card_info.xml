@@ -7,8 +7,73 @@
     tools:context="com.example.chizkiyahuandchaskyh.takeandgo.controller.CreditCardInfoActivity">
 
 
-    <RadioGroup
-        android:id="@+id/issuer_group"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100px" />
+
+        <Spinner
+            android:id="@+id/credit_card_issuer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/credit_card_expiration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/expiration_date"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/credit_card_digits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/digits"
+            android:inputType="numberSigned" />
+
+        <EditText
+            android:id="@+id/credit_card_cvv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/cvv"
+            android:inputType="number"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/credit_card_validate_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickValidateBtn"
+            android:text="Validate" />
+
+        <Button
+            android:id="@+id/credit_card_done_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickDoneBtn"
+            android:text="@string/done" />
+
+        <Button
+            android:id="@+id/credit_card_cancel_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClickCancelBtn"
+            android:text="@android:string/cancel" />
+
+
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

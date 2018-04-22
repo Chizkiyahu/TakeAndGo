@@ -34,6 +34,7 @@
             android:name=".controller.ListViewBaseActivity"
             android:label="@string/title_activity_list_view_base"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".controller.CreditCardInfoActivity" />
     </application>
 
 </manifest>
