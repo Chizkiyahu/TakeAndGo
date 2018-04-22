@@ -2,6 +2,7 @@ package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -75,23 +76,33 @@ public class CustomerActivity extends AppCompatActivity {
 
 
     public void onClickAddCustomer(View view) {
+        Customer customer = null;
         try {
-            Customer customer = new Customer(lastNameView.getText().toString(),
+             customer = new Customer(lastNameView.getText().toString(),
                     firstNameView.getText().toString(),
                     Integer.parseInt( idView.getText().toString()),
                     Long.parseLong(phoneView.getText().toString()),
                     emailView.getText().toString());
-
-            if(customer != null) {
-                customer.setCreditCard(creditCard);
-                BackendFactory.getDataSource().addCustomer(customer);
-            }
         }
         catch (Exception e){
             Log.e(Constants.Log.TAG,e.getMessage());
+            customer = null;
         }
 
-        startActivity(new Intent(CustomerActivity.this, CustomersActivity.class));
+        if(customer != null) {
+            customer.setCreditCard(creditCard);
+
+            try {
+                BackendFactory.getDataSource().addCustomer(customer);
+                startActivity(new Intent(CustomerActivity.this, CustomersActivity.class));
+            }
+            catch (Exception ex) {
+                Log.e(Constants.Log.TAG,ex.getMessage());
+            }
+        }
+        else {
+            Snackbar.make(view, "Could not create Customer.", Snackbar.LENGTH_SHORT).show();
+        }
     }
 
     public void onClickAddCreditCard(View view) {
@@ -108,6 +119,10 @@ public class CustomerActivity extends AppCompatActivity {
     public void onClickRemoveCreditCard(View view) {
         creditCard = null;
         refreshViews();
+    }
+
+    public void onClickCancel(View view) {
+        startActivity(new Intent(CustomerActivity.this, CustomersActivity.class));
     }
 
     private void refreshViews() {
