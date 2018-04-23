@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chizkiyahuandchaskyh.takeandgo">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +14,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".controller.LoginActivity" />
+        <activity android:name=".controller.BranchesActivity" />
+        <activity android:name=".controller.BranchActivity" />
+        <activity android:name=".controller.CustomersActivity" />
+        <activity android:name=".controller.ModelsActivity" />
+        <activity android:name=".controller.CustomerActivity" />
+        <activity android:name=".controller.ModelActivity" />
+        <activity android:name=".controller.CarActivity" />
+        <activity android:name=".controller.CarsActivity" />
+        <activity
+            android:name=".controller.ListViewBaseActivity"
+            android:label="@string/title_activity_list_view_base"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".controller.CreditCardInfoActivity" />
     </application>
 
 </manifest>
