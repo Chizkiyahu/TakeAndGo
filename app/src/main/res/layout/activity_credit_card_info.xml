@@ -28,30 +28,53 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/credit_card_expiration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/expiration_date"
-            android:inputType="date" />
 
-        <EditText
-            android:id="@+id/credit_card_digits"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/digits"
-            android:inputType="numberSigned" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/credit_card_cvv"
+            <AutoCompleteTextView
+                android:id="@+id/credit_card_expiration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/expiration_date"
+                android:inputType="datetime"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/cvv"
-            android:inputType="number"
-            android:singleLine="true" />
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/credit_card_digits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/digits"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/credit_card_cvv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cvv"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
 
         <Button
             android:id="@+id/credit_card_validate_btn"

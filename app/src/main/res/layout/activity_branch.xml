@@ -22,46 +22,82 @@
             android:layout_width="match_parent"
             android:layout_height="100px" />
 
-        <EditText
-            android:id="@+id/branch_country"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/country"
-            android:inputType="textAutoComplete" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/branch_city"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/city"
-            android:inputType="textPersonName" />
+            <AutoCompleteTextView
+                android:id="@+id/branch_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/country"
+                android:inputType="textAutoComplete"
+                android:maxLines="1"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/branch_street"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/street"
-            android:inputType="textPersonName" />
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
-            android:id="@+id/branch_houseNum"
-            style="@android:style/Widget.AutoCompleteTextView"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/house_num"
-            android:inputType="number" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/branch_num_parking_spaces"
+            <AutoCompleteTextView
+                android:id="@+id/branch_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/city"
+                android:inputType="textAutoComplete"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/num_parking_spaces"
-            android:inputType="number" />
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/branch_street"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/street"
+                android:inputType="textAutoComplete"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/branch_houseNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/house_num"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/branch_num_parking_spaces"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/num_parking_spaces"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
 
         <Button
             android:id="@+id/branch_add_button"

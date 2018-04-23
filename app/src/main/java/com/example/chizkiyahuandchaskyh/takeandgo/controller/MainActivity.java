@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void logOutFun(View view){
+    void onClickLogOut(View view){
         SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean("isLogon", false);

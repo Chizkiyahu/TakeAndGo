@@ -21,21 +21,41 @@
             android:layout_width="match_parent"
             android:layout_height="100px" />
 
-        <EditText
-            android:id="@+id/add_car_line_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/car_id"
-            android:inputType="numberSigned" />
 
-        <EditText
-            android:id="@+id/add_car_line_km"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/km"
-            android:inputType="numberSigned" />
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/add_car_line_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/car_id"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/add_car_line_km"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/km"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10px" />
+
 
         <Spinner
             android:id="@+id/add_car_line_branch_id"

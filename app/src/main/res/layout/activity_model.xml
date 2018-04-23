@@ -22,38 +22,67 @@
             android:layout_width="match_parent"
             android:layout_height="100px" />
 
-        <EditText
-            android:id="@+id/model_add_manufacturer_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/manufacturer_name"
-            android:inputType="textAutoComplete" />
 
-        <EditText
-            android:id="@+id/model_add_model_name"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/model_name"
-            android:inputType="textPersonName" />
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/model_add_engine_capacity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/engine_capacity"
-            android:inputType="textPersonName" />
+            <AutoCompleteTextView
+                android:id="@+id/model_add_manufacturer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/manufacturer_name"
+                android:inputType="textAutoComplete"
+                android:maxLines="1"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/model_add_seating"
-            style="@android:style/Widget.AutoCompleteTextView"
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/seating"
-            android:inputType="number" />
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/model_add_model_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/model_name"
+                android:inputType="textAutoComplete"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/model_add_engine_capacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/engine_capacity"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/model_add_seating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/seating"
+                android:inputType="numberSigned"
+                android:maxLines="1"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
 
         <Spinner
             android:id="@+id/model_add_gear_box"

@@ -8,60 +8,87 @@
 
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/branchs_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Branchs"
-            android:onClick="onClickBranchs"
-            />
+            android:layout_height="match_parent"
+            android:weightSum="3"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/customers_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickCustomers"
-            android:text="Customers" />
+            <Button
+                android:id="@+id/branchs_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/branchs"
+                android:onClick="onClickBranchs"
+                android:background="@color/blue"
+                />
 
-        <Button
-            android:id="@+id/car_models_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickModels"
-            android:text="Car models" />
+            <Button
+                android:id="@+id/customers_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickCustomers"
+                android:text="@string/customers"
+                android:background="@color/turquoise"/>
 
-        <Button
-            android:id="@+id/cars_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickCars"
-            android:text="Cars" />
+            <Button
+                android:id="@+id/car_models_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickModels"
+                android:text="@string/car_models"
+                android:background="@color/yellow"/>
 
-        <Button
-            android:id="@+id/admin_users_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onClickAdminUsers"
-            android:text="Admin_users" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/log_out_button"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:onClick="logOutFun"
-            android:text="log out" />
+            android:layout_height="match_parent"
+            android:weightSum="3"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/cars_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickCars"
+                android:text="@string/cars"
+                android:background="@color/turquoise"/>
+
+            <Button
+                android:id="@+id/admin_users_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickAdminUsers"
+                android:text="@string/admin_users"
+                android:background="@color/yellow"/>
+
+
+            <Button
+                android:id="@+id/log_out_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickLogOut"
+                android:text="@string/log_out"
+                android:background="@color/turquoise"/>
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

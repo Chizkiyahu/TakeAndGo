@@ -49,11 +49,14 @@
     <string name="km">KM</string>
     <string name="branch_id">branch ID</string>
     <string name="branches">Branches</string>
-    <string name="cars">Cars</string>
-    <string name="customers">Customers</string>
     <string name="car_models">Car Models</string>
     <string name="expiration_date">expiration date</string>
     <string name="digits">digits</string>
     <string name="done">done</string>
     <string name="cvv">cvv</string>
+    <string name="branchs">Branchs</string>
+    <string name="customers">Customers</string>
+    <string name="cars">Cars</string>
+    <string name="log_out">log out</string>
+    <string name="admin_users">Admin users</string>
 </resources>
