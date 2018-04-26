@@ -6,89 +6,88 @@
     android:layout_height="match_parent"
     tools:context="com.example.chizkiyahuandchaskyh.takeandgo.controller.MainActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="2"
-        android:orientation="horizontal"
+        android:weightSum="3"
+        android:orientation="vertical"
         android:baselineAligned="false">
-        <LinearLayout
+
+        <ImageView
+            android:id="@+id/image_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="3"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/branchs_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/branchs"
-                android:onClick="onClickBranchs"
-                android:background="@color/blue"
-                />
-
-            <Button
-                android:id="@+id/customers_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickCustomers"
-                android:text="@string/customers"
-                android:background="@color/turquoise"/>
-
-            <Button
-                android:id="@+id/car_models_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickModels"
-                android:text="@string/car_models"
-                android:background="@color/yellow"/>
-
-        </LinearLayout>
+            android:layout_weight="2"
+            app:srcCompat="@drawable/cars" />
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="3"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            android:layout_weight="1">
 
-            <Button
-                android:id="@+id/cars_button"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:weightSum="2"
                 android:layout_weight="1"
-                android:onClick="onClickCars"
-                android:text="@string/cars"
-                android:background="@color/turquoise"/>
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/admin_users_button"
+                <Button
+                    android:id="@+id/branchs_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/branchs"
+                    android:onClick="onClickBranchs"
+                    android:background="@color/yellow"
+                    />
+
+                <Button
+                    android:id="@+id/customers_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickCustomers"
+                    android:text="@string/customers"
+                    android:background="@color/turquoise"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:weightSum="2"
                 android:layout_weight="1"
-                android:onClick="onClickAdminUsers"
-                android:text="@string/admin_users"
-                android:background="@color/yellow"/>
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/car_models_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickModels"
+                    android:text="@string/car_models"
+                    android:background="@color/turquoise"/>
+
+                <Button
+                    android:id="@+id/cars_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickCars"
+                    android:text="@string/cars"
+                    android:background="@color/yellow"/>
 
 
-            <Button
-                android:id="@+id/log_out_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickLogOut"
-                android:text="@string/log_out"
-                android:background="@color/turquoise"/>
+            </LinearLayout>
 
 
         </LinearLayout>
-
 
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

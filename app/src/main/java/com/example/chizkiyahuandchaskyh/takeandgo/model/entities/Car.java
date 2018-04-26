@@ -10,7 +10,7 @@ public class Car  {
         this.id = id;
         this.branchID = branchID;
         this.km = km;
-        this.modelID = modelID;
+        this.modelID = model.getCodeModel();
     }
 
     public int getModelID() {

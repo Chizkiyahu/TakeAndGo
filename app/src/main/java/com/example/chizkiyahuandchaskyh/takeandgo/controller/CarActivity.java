@@ -44,13 +44,14 @@ public class CarActivity extends AppCompatActivity {
         try {
             CarModel carModelId = null;
             int branchID = 0;
+
             for (CarModel carModel: dataSource.getCarModelList()) {
-                if (branchIDView.getSelectedItem().toString().equals(carModel.getManufacturerName() + " " + carModel.getModelName())){
+                if (modelIDView.getSelectedItem().toString().equals(carModel.getManufacturerName() + " " + carModel.getModelName())){
                     carModelId = carModel;
                 }
             }
             for (Branch branch : dataSource.getBranchList()){
-                if (modelIDView.getSelectedItem().toString().equals(branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet())){
+                if (branchIDView.getSelectedItem().toString().equals(branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet())){
                     branchID = branch.getId();
                 }
             }

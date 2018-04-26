@@ -59,4 +59,6 @@
     <string name="cars">Cars</string>
     <string name="log_out">log out</string>
     <string name="admin_users">Admin users</string>
+    <string name="branch">Branch</string>
+    <string name="car_model">Car model</string>
 </resources>

@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
@@ -26,15 +29,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void onClickLogOut(View view){
-        SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putBoolean("isLogon", false);
-        editor.putInt("failedLogin", 0);
-        editor.commit();
-        checkLogin();
-    }
-
 
     public void onClickBranchs(View view) {
         startActivity(new Intent(MainActivity.this, BranchesActivity.class));
@@ -53,9 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClickAdminUsers(View view) {
 
-    }
 
     @Override
     public void onBackPressed() {
@@ -63,5 +55,22 @@ public class MainActivity extends AppCompatActivity {
         startMain.addCategory(Intent.CATEGORY_HOME);
         startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(startMain);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    public void onClickLogOut(MenuItem item) {
+        SharedPreferences prefs = getSharedPreferences("UserData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("isLogon", false);
+        editor.putInt("failedLogin", 0);
+        editor.commit();
+        checkLogin();
     }
 }
