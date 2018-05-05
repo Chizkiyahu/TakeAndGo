@@ -65,7 +65,8 @@ public class CarActivity extends AppCompatActivity {
             Log.e(Constants.Log.TAG,e.getMessage());
         }
 
-        startActivity(new Intent(this, CarsActivity.class));
+        //startActivity(new Intent(this, CarsActivity.class));
+        finish();
     }
 
 

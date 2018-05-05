@@ -47,7 +47,7 @@ public class BranchesActivity extends ListViewBaseActivity {
 
     @Override
     protected void onClickCreateNew() {
-        startActivity(new Intent(this, BranchActivity.class));
+        startActivity(new Intent(this, FormViewBaseActivity.class));
     }
 
     @Override
