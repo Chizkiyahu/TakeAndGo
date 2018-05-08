@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class ModelsActivity extends ListViewBaseActivity {
 
     ArrayList<CarModel> carModelArrayList = new ArrayList<>();
+    ArrayAdapter<CarModel> adapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,6 @@ public class ModelsActivity extends ListViewBaseActivity {
                     e.printStackTrace();
                 }
                 test = new ArrayList<>(dataSource.getCarModelList());
-                onPostExecute(null);
                 return null;
             }
 
@@ -60,34 +60,37 @@ public class ModelsActivity extends ListViewBaseActivity {
 
     @Override
     protected ArrayAdapter getListViewAdapter() {
-        return new ArrayAdapter<CarModel>( this, R.layout.model_line, carModelArrayList ) {
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        if(adapter == null) {
+            adapter = new ArrayAdapter<CarModel>(this, R.layout.model_line, carModelArrayList) {
+                @NonNull
+                @Override
+                public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
 
-                if (convertView == null) {
-                    convertView = View.inflate( ModelsActivity.this,R.layout.model_line,null );
+                    if (convertView == null) {
+                        convertView = View.inflate(ModelsActivity.this, R.layout.model_line, null);
+                    }
+
+                    CarModel carModel = this.getItem(position);
+                    TextView idView = convertView.findViewById(R.id.model_line_id);
+                    TextView manufacturerNameView = convertView.findViewById(R.id.model_line_manufacturer_name);
+                    TextView modelNameView = convertView.findViewById(R.id.model_line_model_name);
+                    TextView engineCapacityView = convertView.findViewById(R.id.model_line_engine_capacity);
+                    TextView seatingView = convertView.findViewById(R.id.model_line_seating);
+                    TextView gearBoxView = convertView.findViewById(R.id.model_line_gear_box);
+
+                    idView.setText("Model ID: " + carModel.getCodeModel());
+                    manufacturerNameView.setText("Manufacturer: " + carModel.getManufacturerName());
+                    modelNameView.setText("Model Name: " + carModel.getCodeModel());
+                    engineCapacityView.setText("Engine Capacity: " + carModel.getEngineCapacity());
+                    seatingView.setText("Seating: " + carModel.getSeating());
+                    gearBoxView.setText("Gear Box: " + carModel.getGearBox().name().toString().toLowerCase());
+
+                    return convertView;
                 }
-
-                CarModel carModel = this.getItem(position);
-                TextView idView = convertView.findViewById( R.id.model_line_id );
-                TextView manufacturerNameView = convertView.findViewById( R.id.model_line_manufacturer_name );
-                TextView modelNameView = convertView.findViewById( R.id.model_line_model_name );
-                TextView engineCapacityView = convertView.findViewById( R.id.model_line_engine_capacity );
-                TextView seatingView = convertView.findViewById( R.id.model_line_seating );
-                TextView gearBoxView = convertView.findViewById( R.id.model_line_gear_box );
-
-                idView.setText("Model ID: " + carModel.getCodeModel() );
-                manufacturerNameView.setText("Manufacturer: " + carModel.getManufacturerName() );
-                modelNameView.setText("Model Name: " + carModel.getCodeModel());
-                engineCapacityView.setText("Engine Capacity: " + carModel.getEngineCapacity());
-                seatingView.setText("Seating: " +  carModel.getSeating());
-                gearBoxView.setText("Gear Box: " +  carModel.getGearBox().name().toString().toLowerCase());
-
-                return convertView;
-            }
-        };
+            };
+        }
+        return adapter;
     }
 
     @Override
