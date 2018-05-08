@@ -60,10 +60,9 @@ public class ModelActivity extends AppCompatActivity {
         }
         catch (Exception e){
             Log.e(Constants.Log.TAG,e.getMessage());
-            int test = 5;
         }
 
-        startActivity(new Intent(ModelActivity.this, ModelsActivity.class));
+        finish();
 
     }
 }

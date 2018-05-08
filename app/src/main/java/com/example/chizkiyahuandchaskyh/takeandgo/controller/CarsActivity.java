@@ -12,11 +12,16 @@ import android.widget.TextView;
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
 
+import java.util.ArrayList;
+
 public class CarsActivity extends ListViewBaseActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override

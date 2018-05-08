@@ -5,6 +5,8 @@ public class Car  {
     protected int id;
     protected int  branchID;
     protected int km;
+    protected int modelID;
+
 
     public Car(int id, int branchID, int km, CarModel model) {
         this.id = id;
@@ -21,7 +23,7 @@ public class Car  {
         this.modelID = modelID;
     }
 
-    protected int modelID;
+
 
     public int getId() {
         return id;

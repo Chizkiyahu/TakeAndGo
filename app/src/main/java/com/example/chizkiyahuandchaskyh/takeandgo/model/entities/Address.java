@@ -2,7 +2,7 @@ package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
 public class Address {
 
-    protected String country;
+
 
     public Address(String country, String city, String street, int houseNum) {
         this.country = country;
@@ -10,7 +10,7 @@ public class Address {
         this.street = street;
         this.houseNum = houseNum;
     }
-
+    protected String country;
     protected String city;
     protected String street;
     protected int houseNum;

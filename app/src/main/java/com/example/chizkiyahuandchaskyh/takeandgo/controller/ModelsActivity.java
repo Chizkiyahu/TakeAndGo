@@ -1,6 +1,7 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
@@ -12,16 +13,54 @@ import android.widget.TextView;
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
 
+import java.util.ArrayList;
+
 public class ModelsActivity extends ListViewBaseActivity {
+
+    ArrayList<CarModel> carModelArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        new  AsyncTask<Void, Void, Void>(){
+            ArrayList<CarModel> test ;
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+
+                getListViewAdapter().clear();
+                getListViewAdapter().addAll(test);
+                getListViewAdapter().notifyDataSetChanged();
+                //refresh();
+            }
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                test = new ArrayList<>(dataSource.getCarModelList());
+                onPostExecute(null);
+                return null;
+            }
+
+        }.execute();
+
+    }
+
     @Override
     protected ArrayAdapter getListViewAdapter() {
-        return new ArrayAdapter<CarModel>( this, R.layout.model_line, dataSource.getCarModelList()) {
+        return new ArrayAdapter<CarModel>( this, R.layout.model_line, carModelArrayList ) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -63,6 +102,10 @@ public class ModelsActivity extends ListViewBaseActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
+
+
+
+
 }

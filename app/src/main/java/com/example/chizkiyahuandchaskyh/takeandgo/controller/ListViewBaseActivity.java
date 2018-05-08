@@ -1,5 +1,6 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -11,11 +12,27 @@ import com.example.chizkiyahuandchaskyh.takeandgo.R;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.BackendFactory;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
 
+import java.util.ArrayList;
+
 public class ListViewBaseActivity extends AppCompatActivity {
 
 
     protected DataSource dataSource  = BackendFactory.getDataSource();
     protected ListView listView;
+
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        listView.setAdapter(getListViewAdapter());
+        refresh();
+    }
+
+    protected void refresh(){
+
+
+        getListViewAdapter().notifyDataSetChanged();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +67,6 @@ public class ListViewBaseActivity extends AppCompatActivity {
     protected void onClickCreateNew() {
 
     }
+
 
 }
