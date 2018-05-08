@@ -2,6 +2,7 @@ package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -91,14 +92,18 @@ public class CustomerActivity extends AppCompatActivity {
 
         if(customer != null) {
             customer.setCreditCard(creditCard);
-
-            try {
-                BackendFactory.getDataSource().addCustomer(customer);
-                startActivity(new Intent(CustomerActivity.this, CustomersActivity.class));
-            }
-            catch (Exception ex) {
-                Log.e(Constants.Log.TAG,ex.getMessage());
-            }
+            new AsyncTask<Customer,Void,Void>(){
+                @Override
+                protected Void doInBackground(Customer... customers) {
+                    try {
+                        BackendFactory.getDataSource().addCustomer(customers[0]);
+                    } catch (Exception ex) {
+                            Log.e(Constants.Log.TAG,ex.getMessage());
+                    }
+                    return null;
+                }
+            }.execute(customer);
+            finish();
         }
         else {
             Snackbar.make(view, "Could not create Customer.", Snackbar.LENGTH_SHORT).show();

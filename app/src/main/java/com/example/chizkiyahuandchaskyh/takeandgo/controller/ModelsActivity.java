@@ -31,26 +31,17 @@ public class ModelsActivity extends ListViewBaseActivity {
     protected void onPostResume() {
         super.onPostResume();
         new  AsyncTask<Void, Void, Void>(){
-            ArrayList<CarModel> test ;
-
             @Override
             protected void onPostExecute(Void aVoid) {
 
                 getListViewAdapter().clear();
-                getListViewAdapter().addAll(test);
+                getListViewAdapter().addAll(carModelArrayList);
                 getListViewAdapter().notifyDataSetChanged();
-                //refresh();
             }
 
             @Override
             protected Void doInBackground(Void... voids) {
-
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                test = new ArrayList<>(dataSource.getCarModelList());
+                carModelArrayList = new ArrayList<>(dataSource.getCarModelList());
                 return null;
             }
 

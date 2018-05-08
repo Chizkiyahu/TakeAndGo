@@ -4,14 +4,17 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.BackendFactory;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Address;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
@@ -19,7 +22,7 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.utils.Constants;
 public class BranchActivity extends AppCompatActivity {
 
     protected EditText countryView, cityView, streetView, houseNumberView, numberOfParkingSpacesView;
-
+    protected DataSource dataSource = BackendFactory.getDataSource();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,28 +33,22 @@ public class BranchActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     public void onClickAdd(final View view)  {
         try {
-
-            final Branch newBranch = new Branch(Integer.parseInt(numberOfParkingSpacesView.getText().toString()),
-                                    new Address(countryView.getText().toString(),
+            new AsyncTask<Void,String , Void>() {
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    try {
+                        dataSource.addBranch(new Branch(Integer.parseInt(numberOfParkingSpacesView.getText().toString()),
+                                new Address(countryView.getText().toString(),
                                         cityView.getText().toString(),
                                         streetView.getText().toString(),
-                                        Integer.parseInt(houseNumberView.getText().toString())));
-
-
-            new AsyncTask<Branch,Void , Void>() {
-                @Override
-                protected Void doInBackground(Branch... branches) {
-                    try {
-                        BackendFactory.getDataSource().addBranch(branches[0]);
+                                        Integer.parseInt(houseNumberView.getText().toString()))));
 
                     }catch (Exception e){
-                            Log.e(Constants.Log.TAG,e.getMessage());
+                        Log.e(Constants.Log.TAG,e.getMessage());
                     }
                     return null;
                 }
-            }.execute(newBranch);
-
-
+            }.execute();
         }
         catch (Exception e){
             Log.e(Constants.Log.TAG,e.getMessage());
@@ -66,6 +63,10 @@ public class BranchActivity extends AppCompatActivity {
         streetView = findViewById(R.id.branch_street);
         houseNumberView = findViewById(R.id.branch_houseNum);
         numberOfParkingSpacesView = findViewById(R.id.branch_num_parking_spaces);
+
+
     }
 
 }
+
+

@@ -1,5 +1,7 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
+import java.util.Objects;
+
 public class Address {
 
 
@@ -17,8 +19,18 @@ public class Address {
     protected double Latitude;
     protected double longitude;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Address address = (Address) o;
 
+        if (houseNum != address.houseNum) return false;
+        if (!country.equals(address.country)) return false;
+        if (!city.equals(address.city)) return false;
+        return street.equals(address.street);
+    }
 
     @Override
     public String toString() {

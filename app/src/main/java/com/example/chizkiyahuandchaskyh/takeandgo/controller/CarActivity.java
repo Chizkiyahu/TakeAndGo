@@ -1,6 +1,7 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.Spinner;
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.BackendFactory;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Address;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
@@ -25,11 +27,10 @@ public class CarActivity extends AppCompatActivity {
     protected EditText kmView, idView;
     protected Spinner branchIDView, modelIDView;
     protected DataSource dataSource = BackendFactory.getDataSource();
-    protected ArrayList<String> branchesStringArrayList = new ArrayList<>();
-    protected ArrayList<String> carModelStringArrayList = new ArrayList<>();
-
-
-
+    protected ArrayList<brancheSpinnerClass> brancheSpinnerClasses = new ArrayList<>();
+    protected ArrayList<carModelSpinnerClass> carModelSpinnerClasses = new ArrayList<>();
+    protected ArrayAdapter<brancheSpinnerClass> brancheSpinnerClassArrayAdapter;
+    protected ArrayAdapter<carModelSpinnerClass> carModelSpinnerArrayAdapter;
 
 
     @Override
@@ -41,31 +42,23 @@ public class CarActivity extends AppCompatActivity {
 
     public void onClickAdd(View view) {
 
-        try {
-            CarModel carModelId = null;
-            int branchID = 0;
+            new AsyncTask<Void,Void, Void>(){
 
-            for (CarModel carModel: dataSource.getCarModelList()) {
-                if (modelIDView.getSelectedItem().toString().equals(carModel.getManufacturerName() + " " + carModel.getModelName())){
-                    carModelId = carModel;
+                @Override
+                protected Void doInBackground(Void... voids) {
+                    try {
+                        dataSource.addCar(new Car(Integer.parseInt( idView.getText().toString()),
+                                brancheSpinnerClasses.get(branchIDView.getSelectedItemPosition()).getBranch().getId(),
+                                Integer.parseInt( kmView.getText().toString()),
+                                carModelSpinnerClasses.get(modelIDView.getSelectedItemPosition()).getCarModel()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return null;
                 }
-            }
-            for (Branch branch : dataSource.getBranchList()){
-                if (branchIDView.getSelectedItem().toString().equals(branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet())){
-                    branchID = branch.getId();
-                }
-            }
-          dataSource.addCar(new Car(Integer.parseInt( idView.getText().toString()),
-                  branchID,
-                  Integer.parseInt( kmView.getText().toString()),
-                  carModelId));
+            }.execute();
 
-        }
-        catch (Exception e){
-            Log.e(Constants.Log.TAG,e.getMessage());
-        }
-
-        startActivity(new Intent(this, CarsActivity.class));
+        finish();
     }
 
 
@@ -77,28 +70,82 @@ public class CarActivity extends AppCompatActivity {
         branchIDView = findViewById(R.id.add_car_line_branch_id);
         modelIDView = findViewById(R.id.add_car_line_model_id);
 
+        new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... voids) {
+
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                for (Branch branch : dataSource.getBranchList()) {
+                    brancheSpinnerClasses.add(new brancheSpinnerClass(branch));
+                }
+                for (CarModel carModel : dataSource.getCarModelList()) {
+                    carModelSpinnerClasses.add(new carModelSpinnerClass(carModel));
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                brancheSpinnerClassArrayAdapter.notifyDataSetChanged();
+                carModelSpinnerArrayAdapter.notifyDataSetChanged();
+
+            }
+        }.execute();
 
 
-
-        for (Branch branch : dataSource.getBranchList()) {
-            branchesStringArrayList.add(branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet());
+        if (brancheSpinnerClassArrayAdapter == null) {
+            brancheSpinnerClassArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,brancheSpinnerClasses);
+            brancheSpinnerClassArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+            branchIDView.setAdapter(brancheSpinnerClassArrayAdapter);
         }
 
-        ArrayAdapter<String> branchIdSpinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, branchesStringArrayList);
-        branchIdSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
 
-        branchIDView.setAdapter(branchIdSpinnerArrayAdapter);
-
-        for (CarModel carModel : dataSource.getCarModelList()) {
-                carModelStringArrayList.add(carModel.getManufacturerName() + " " + carModel.getModelName());
+        if (carModelSpinnerArrayAdapter == null) {
+            carModelSpinnerArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,carModelSpinnerClasses);
+            carModelSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+            modelIDView.setAdapter(carModelSpinnerArrayAdapter);
         }
-        ArrayAdapter<String> carModelSpinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, carModelStringArrayList);
-        carModelSpinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-        modelIDView.setAdapter(carModelSpinnerArrayAdapter);
 
 
     }
 
+    private class brancheSpinnerClass  {
+        Branch branch;
+        public Branch getBranch() {
+            return branch;
+        }
+
+        public brancheSpinnerClass(Branch branch) {
+            this.branch = branch;
+        }
+
+        @Override
+        public String toString() {
+            return branch.getId() + " " + branch.getAddress().getCity() + " " + branch.getAddress().getStreet();
+        }
+    }
+
+    private class carModelSpinnerClass {
+
+        CarModel carModel;
+
+        public carModelSpinnerClass(CarModel carModel) {
+            this.carModel = carModel;
+        }
+
+        public CarModel getCarModel() {
+            return carModel;
+        }
+
+        @Override
+        public String toString() {
+            return carModel.getManufacturerName() + " " + carModel.getModelName();
+        }
+    }
 
 
 }
