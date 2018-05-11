@@ -1,6 +1,7 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
@@ -45,6 +46,8 @@ public class BranchActivity extends AppCompatActivity {
 
                     }catch (Exception e){
                         Log.e(Constants.Log.TAG,e.getMessage());
+                        Snackbar.make(getWindow().getDecorView().getRootView(), "Could not create Customer.", Snackbar.LENGTH_SHORT).show();
+
                     }
                     return null;
                 }

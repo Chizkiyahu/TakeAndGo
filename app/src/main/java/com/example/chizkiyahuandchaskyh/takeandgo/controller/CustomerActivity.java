@@ -79,6 +79,7 @@ public class CustomerActivity extends AppCompatActivity {
     public void onClickAddCustomer(View view) {
         Customer customer = null;
         try {
+
              customer = new Customer(lastNameView.getText().toString(),
                     firstNameView.getText().toString(),
                     Integer.parseInt( idView.getText().toString()),
@@ -103,7 +104,7 @@ public class CustomerActivity extends AppCompatActivity {
                     return null;
                 }
             }.execute(customer);
-            finish();
+           finish();
         }
         else {
             Snackbar.make(view, "Could not create Customer.", Snackbar.LENGTH_SHORT).show();
