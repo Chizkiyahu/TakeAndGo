@@ -2,10 +2,13 @@ package com.example.chizkiyahuandchaskyh.takeandgo.model.datasource;
 
 
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Address;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CreditCard;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Order;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,6 +49,36 @@ public class DatabaseList implements  DataSource  {
             throw new  Exception("the customer already exists");
         }
         customerMap.put(customer.getId(), customer);
+    }
+
+    @Override
+    public Address getAddressByID(int id) {
+        return null;
+    }
+
+    @Override
+    public Branch getBranchByID(int id) {
+        return null;
+    }
+
+    @Override
+    public Car getCarByID(int id) {
+        return null;
+    }
+
+    @Override
+    public CreditCard getCreditCardByID(int id) {
+        return null;
+    }
+
+    @Override
+    public Customer getCustomerById(int id) {
+        return null;
+    }
+
+    @Override
+    public Order getOrderById(int id) {
+        return null;
     }
 
     @Override

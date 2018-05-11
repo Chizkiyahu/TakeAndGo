@@ -12,6 +12,7 @@ public class Address {
         this.street = street;
         this.houseNum = houseNum;
     }
+    protected int id;
     protected String country;
     protected String city;
     protected String street;

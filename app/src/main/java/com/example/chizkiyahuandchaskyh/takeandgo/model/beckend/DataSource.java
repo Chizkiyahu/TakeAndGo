@@ -1,9 +1,12 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.model.beckend;
 
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Address;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CreditCard;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Order;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,6 +25,13 @@ public interface DataSource {
     ArrayList<Customer> getListCustomer();
     ArrayList<Branch> getBranchList();
     ArrayList<Car> getCarList();
+
+    Address getAddressByID(int id);
+    Branch getBranchByID(int id);
+    Car getCarByID(int id);
+    CreditCard getCreditCardByID(int id);
+    Customer getCustomerById(int id);
+    Order getOrderById(int id);
 
 
     boolean TryUserPass(String username, String Password) throws Exception;

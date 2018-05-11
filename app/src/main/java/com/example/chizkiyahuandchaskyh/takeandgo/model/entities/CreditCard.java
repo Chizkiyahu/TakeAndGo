@@ -25,11 +25,10 @@ public class CreditCard implements Serializable {
             }
         }
     }
-
+    private int id;
     private String digits;
     private Date expiration;
     private String cvv;
-
     private Issuer issuer;
 
     public CreditCard(String digits, Issuer issuer, Date expiration, String cvv) {
