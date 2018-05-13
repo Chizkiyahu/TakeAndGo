@@ -1,19 +1,15 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.controller;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
-import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CreditCard;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 
 import java.util.ArrayList;
@@ -41,7 +37,7 @@ public class CustomersActivity extends ListViewBaseActivity {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                customerArrayList = new ArrayList<>(dataSource.getListCustomer());
+                customerArrayList = new ArrayList<>(dataSource.getCustomerList());
                 return null;
             }
 

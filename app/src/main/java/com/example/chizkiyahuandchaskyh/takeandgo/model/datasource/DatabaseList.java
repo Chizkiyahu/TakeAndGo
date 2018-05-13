@@ -62,6 +62,11 @@ public class DatabaseList implements  DataSource  {
     }
 
     @Override
+    public CarModel getCarModelById(int id) {
+        return null;
+    }
+
+    @Override
     public Car getCarByID(int id) {
         return null;
     }
@@ -110,7 +115,7 @@ public class DatabaseList implements  DataSource  {
     }
 
     @Override
-    public ArrayList<Customer> getListCustomer() {
+    public ArrayList<Customer> getCustomerList() {
         return new ArrayList<>(customerMap.values());
     }
 
@@ -125,6 +130,20 @@ public class DatabaseList implements  DataSource  {
     }
 
 
+    @Override
+    public ArrayList<Address> getAddressesList() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<CreditCard> getCreditCardsList() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Order> getOrdersList() {
+        return null;
+    }
 
     @Override
     public boolean TryUserPass(String username, String password) throws Exception {

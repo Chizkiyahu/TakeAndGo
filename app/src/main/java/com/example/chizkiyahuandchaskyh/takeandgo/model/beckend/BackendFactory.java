@@ -10,8 +10,8 @@ public class BackendFactory {
         return ourInstance;
     }
 
-    static DataSource dataSourceInstance = new DatabaseList();
-    //static DataSource dataSourceInstance = new DatabaseSQL();
+    //static DataSource dataSourceInstance = new DatabaseList();
+    static DataSource dataSourceInstance = new DatabaseSQL();
    public static DataSource getDataSource() {return  dataSourceInstance; }
 
     private BackendFactory() {

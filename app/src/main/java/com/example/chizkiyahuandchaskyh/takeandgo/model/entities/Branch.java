@@ -31,6 +31,12 @@ public class Branch  {
         this.address = address;
     }
 
+    public Branch(int id, int numParkingSpaces, Address address) {
+        this.id = id;
+        this.numParkingSpaces = numParkingSpaces;
+        this.address = address;
+    }
+
     protected int id;
     protected int numParkingSpaces;
     protected Address address;

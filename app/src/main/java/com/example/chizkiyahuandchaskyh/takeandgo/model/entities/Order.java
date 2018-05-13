@@ -109,7 +109,7 @@ public class Order {
     }
 
 
-    enum STATUS{
+   public enum STATUS{
         OPEN,
         CLOSED
     }

@@ -28,11 +28,11 @@ public class CarsActivity extends ListViewBaseActivity {
 
     }
 
-
     @Override
     protected void onPostResume() {
         super.onPostResume();
         new  AsyncTask<Void, Void, Void>(){
+
             @Override
             protected void onPostExecute(Void aVoid) {
 
@@ -51,10 +51,11 @@ public class CarsActivity extends ListViewBaseActivity {
 
     }
 
+
     @Override
     protected ArrayAdapter getListViewAdapter() {
         if (adapter == null)
-            return new ArrayAdapter<Car>( this, R.layout.car_line, carArrayList) {
+            adapter = new  ArrayAdapter<Car>( this, R.layout.car_line, carArrayList) {
                 @NonNull
                 @Override
                 public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

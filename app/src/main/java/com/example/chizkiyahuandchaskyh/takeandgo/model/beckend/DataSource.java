@@ -22,9 +22,12 @@ public interface DataSource {
 
 
     ArrayList<CarModel> getCarModelList();
-    ArrayList<Customer> getListCustomer();
+    ArrayList<Customer> getCustomerList();
     ArrayList<Branch> getBranchList();
     ArrayList<Car> getCarList();
+    ArrayList<Address> getAddressesList();
+    ArrayList<CreditCard> getCreditCardsList();
+    ArrayList<Order> getOrdersList();
 
     Address getAddressByID(int id);
     Branch getBranchByID(int id);
@@ -32,6 +35,7 @@ public interface DataSource {
     CreditCard getCreditCardByID(int id);
     Customer getCustomerById(int id);
     Order getOrderById(int id);
+    CarModel getCarModelById(int id);
 
 
     boolean TryUserPass(String username, String Password) throws Exception;

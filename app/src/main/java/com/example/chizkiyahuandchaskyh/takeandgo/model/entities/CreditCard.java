@@ -25,6 +25,11 @@ public class CreditCard implements Serializable {
             }
         }
     }
+
+    public int getId() {
+        return id;
+    }
+
     private int id;
     private String digits;
     private Date expiration;

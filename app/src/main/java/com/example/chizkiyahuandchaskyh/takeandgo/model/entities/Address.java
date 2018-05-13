@@ -12,9 +12,28 @@ public class Address {
         this.street = street;
         this.houseNum = houseNum;
     }
+
+    public Address(Address oldAddress) {
+        this.country = oldAddress.country;
+        this.city = oldAddress.city;
+        this.street = oldAddress.street;
+        this.houseNum = oldAddress.houseNum;
+    }
+
     protected int id;
     protected String country;
     protected String city;
+
+    public Address(int id, String country, String city, String street, int houseNum, double latitude, double longitude) {
+        this.id = id;
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.houseNum = houseNum;
+        Latitude = latitude;
+        this.longitude = longitude;
+    }
+
     protected String street;
     protected int houseNum;
     protected double Latitude;
