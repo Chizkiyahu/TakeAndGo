@@ -18,6 +18,7 @@ public interface DataSource {
     void addCarModle(CarModel  carModel) throws Exception;
     void addCar(Car car) throws Exception;
     void addBranch(Branch branch) throws Exception;
+    void addAddress(Address address)  throws Exception;
 
 
 

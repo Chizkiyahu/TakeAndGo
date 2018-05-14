@@ -82,6 +82,11 @@ public class DatabaseList implements  DataSource  {
     }
 
     @Override
+    public void addAddress(Address address) throws Exception {
+
+    }
+
+    @Override
     public Order getOrderById(int id) {
         return null;
     }

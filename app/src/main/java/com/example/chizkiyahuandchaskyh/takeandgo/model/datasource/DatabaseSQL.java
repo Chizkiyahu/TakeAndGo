@@ -25,9 +25,6 @@ import java.util.Map;
 public class DatabaseSQL implements DataSource {
 
     private static final String WEB_URL = "http://rafol.vlab.jct.ac.il/TakeAndGo/";
-
-
-
     private Map<String, String> usersPassMap = new HashMap<>();
 
     private Map<Integer, Address> addresses ;
@@ -41,54 +38,193 @@ public class DatabaseSQL implements DataSource {
 
     @Override
     public Address getAddressByID(int id) {
-        getAddressesList();
-        if (id == 0){
-            return null;
+        try {
+            if (id == 0){
+                return null;
+            }
+            if (addresses == null){
+                addresses = new HashMap<>();
+            }
+
+            String url = WEB_URL + "getAddressesList.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("id", id);
+            String json = Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Address" );
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject( i );
+                addresses.put(jsonObject.getInt( "id" ),
+                        new Address(jsonObject.getInt( "id" ),
+                                jsonObject.getString( "country" ),
+                                jsonObject.getString("city"),
+                                jsonObject.getString("street"),
+                                jsonObject.getInt("houseNum"),
+                                jsonObject.getDouble("Latitude"),
+                                jsonObject.getDouble("longitude")));
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
         }
         return addresses.get(id);
     }
 
+    public int getAddressIdByParms(Address address){
+        try {
+            if (addresses == null){
+                addresses = new HashMap<>();
+            }
+
+            String url = WEB_URL + "getAddressesList.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("country",address.getCountry());
+            values.put("city", address.getCity());
+            values.put("street", address.getStreet());
+            values.put("houseNum", address.getHouseNum());
+            if (address.getLatitude() == 0.0 ){
+                values.put("Latitude",  0 );
+            }
+            else {
+                values.put("Latitude",  address.getLatitude() );
+            }
+            if (address.getLatitude() == 0.0 ){
+                values.put("Latitude", 0 );
+            }
+            else {
+                values.put("Latitude", address.getLatitude() );
+            }
+            //values.put("Latitude", (address.getLatitude() == 0.0 ) ? 0 : address.getLatitude() );
+            //values.put("longitude", (address.getLongitude()  == 0.0 ) ? 0 : address.getLongitude());
+            String json = Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Address" );
+            if( array.length() == 1) {
+                JSONObject jsonObject = array.getJSONObject( 0 );
+                return  jsonObject.getInt( "id" );
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
+        }
+        return -1;
+    }
+
     @Override
     public Branch getBranchByID(int id) {
-        getBranchList();
-        if (id == 0){
-            return null;
+
+        try {
+            if (id == 0){
+                return null;
+            }
+            if(branches == null){
+                branches = new HashMap<>();
+            }
+            String url = WEB_URL + "getBranchList.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("id", id);
+            String json = Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Branch" );
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject( i );
+                branches.put(jsonObject.getInt( "id" ),
+                        new Branch(jsonObject.getInt( "id" ),
+                                jsonObject.getInt( "numParkingSpaces" ),
+                                new Address(getAddressByID( jsonObject.getInt( "addressID")))));
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
         }
         return branches.get(id);
     }
 
     @Override
     public Car getCarByID(int id) {
-        getCarList();
-        if (id == 0){
-            return null;
+        try {
+            if (id == 0){
+                return null;
+            }
+            if (addresses == null){
+                addresses = new HashMap<>();
+            }
+            String url = WEB_URL + "getCarList.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("id", id);
+            String json = Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Car" );
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject( i );
+                cars.put(jsonObject.getInt( "id" ),
+                        new Car(jsonObject.getInt( "id" ),
+                                jsonObject.getInt( "branchID" ),
+                                jsonObject.getInt("km"),
+                                new CarModel(getCarModelById(jsonObject.getInt("modelID")))));
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
         }
         return cars.get(id);
     }
 
     @Override
-    public CreditCard getCreditCardByID(int id) {
-        getCreditCardsList();
-        if (id == 0){
-            return null;
-        }
-        return creditCards.get(id);
-    }
-
-    @Override
     public Customer getCustomerById(int id) {
-        getCustomerList();
-        if (id == 0){
-            return null;
+        try {
+            if (id == 0){
+                return null;
+            }
+            if (customers == null){
+                customers = new HashMap<>();
+            }
+            String url = WEB_URL + "getCustomerList.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("id", id);
+            String json = Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Customer" );
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject( i );
+                customers.put(jsonObject.getInt( "id" ),
+                        new Customer(
+                                jsonObject.getString( "lastName" ),
+                                jsonObject.getString( "firstName" ),
+                                jsonObject.getInt( "id" ),
+                                jsonObject.getLong( "phoneNumber" ),
+                                jsonObject.getString( "email"),
+                                getCreditCardByID(jsonObject.getInt( "creditCardID" ))
+                        )
+                );
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
         }
         return customers.get(id);
     }
 
     @Override
     public Order getOrderById(int id) {
-        getOrdersList();
-        if (id == 0){
-            return null;
+        try {
+            if (id == 0){
+                return null;
+            }
+            if (orders == null){
+                orders = new HashMap<>();
+            }
+            String url = WEB_URL + "getOrdersList.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("id", id);
+            String json = Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Order" );
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject( i );
+                orders.put(jsonObject.getInt( "orderID" ),
+                        new Order(jsonObject.getInt( "orderID" ),
+                                jsonObject.getInt( "customerID" ),
+                                Order.STATUS.valueOf(jsonObject.getString("status")),
+                                Element.DataType.valueOf("start"),
+                                Element.DataType.valueOf("end"),
+                                jsonObject.getInt("startKM"),
+                                jsonObject.getInt("endKM"),
+                                Boolean.getBoolean(jsonObject.getString("returnNonFilledTank")),
+                                jsonObject.getInt("quantityOfLitersPerBill"),
+                                jsonObject.getInt("amountToPay")));
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
         }
         return orders.get(id);
     }
@@ -100,9 +236,32 @@ public class DatabaseSQL implements DataSource {
 
     @Override
     public CarModel getCarModelById(int id) {
-        getCarModelList();
-        if (id == 0){
-            return null;
+        try {
+            if (id == 0){
+                return null;
+            }
+            if (carModels == null){
+                carModels = new HashMap<>();
+            }
+            String url = WEB_URL + "etCarModelList.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("id", id);
+            String json = Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "CarModel" );
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject( i );
+                carModels.put(jsonObject.getInt( "codeModel" ),
+                        new CarModel(
+                                jsonObject.getInt( "codeModel" ),
+                                jsonObject.getString( "manufacturerName" ),
+                                jsonObject.getString( "modelName" ),
+                                jsonObject.getInt( "engineCapacity" ),
+                                CarModel.GEAR_BOX.valueOf( jsonObject.getString( "gearBox" )),
+                                jsonObject.getInt( "seating" )
+                        ));
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
         }
         return carModels.get(id);
     }
@@ -140,7 +299,6 @@ public class DatabaseSQL implements DataSource {
             values.put("seating", carModel.getSeating());
             values.put("gearBox", carModel.getGearBox().toString());
 
-
             Php.POST( url, values );
         } catch (Exception e) {
             Log.e(Constants.Log.TAG,e.getMessage());
@@ -168,12 +326,33 @@ public class DatabaseSQL implements DataSource {
     @Override
     public void addBranch(Branch branch) throws Exception {
         try {
-            String url = WEB_URL + "addBranch.php" ;
 
+            String url = WEB_URL + "addBranch.php" ;
+            this.addAddress(branch.getAddress());
             final ContentValues values = new ContentValues();
             values.put("id", branch.getId());
             values.put("numParkingSpaces", branch.getNumParkingSpaces());
-            //values.put("addressID",);
+            values.put("addressID", getAddressIdByParms(branch.getAddress()));
+
+            Php.POST( url, values );
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
+        }
+
+    }
+    @Override
+    public void addAddress(Address address) throws Exception {
+        try {
+            String url = WEB_URL + "addAddress.php" ;
+
+            final ContentValues values = new ContentValues();
+            values.put("country",address.getCountry());
+            values.put("city", address.getCity());
+            values.put("street", address.getStreet());
+            values.put("houseNum", address.getHouseNum());
+            values.put("Latitude", address.getLatitude());
+            values.put("longitude", address.getLongitude());
+
 
             Php.POST( url, values );
         } catch (Exception e) {
@@ -209,9 +388,6 @@ public class DatabaseSQL implements DataSource {
         }
         return new ArrayList<>(carModels.values());
     }
-
-
-
 
     @Override
     public ArrayList<Customer> getCustomerList() {
@@ -390,5 +566,42 @@ public class DatabaseSQL implements DataSource {
     public void addUserPass(String username, String Password) throws Exception {
 
     }
+
+    ////////---
+    //
+    @Override
+    public CreditCard getCreditCardByID(int id) {
+        if (creditCards == null){
+            creditCards = new HashMap<>();
+        }
+       /* if (id == 0){
+            return null;
+        }
+        try {
+            if (id == 0){
+                return null;
+            }
+            if (creditCards == null){
+                creditCards = new HashMap<>();
+            }
+            String url = WEB_URL + "getCreditCards.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("id", id);
+            String json = Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Car" );
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject( i );
+                cars.put(jsonObject.getInt( "id" ),
+                        new Car(jsonObject.getInt( "id" ),
+                                jsonObject.getInt( "branchID" ),
+                                jsonObject.getInt("km"),
+                                new CarModel(getCarModelById(jsonObject.getInt("modelID")))));
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
+        }*/
+        return creditCards.get(id);
+    }
+
 
 }
