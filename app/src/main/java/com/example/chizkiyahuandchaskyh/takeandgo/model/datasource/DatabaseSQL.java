@@ -553,18 +553,46 @@ public class DatabaseSQL implements DataSource {
 
 
     @Override
-    public boolean TryUserPass(String username, String Password) throws Exception {
-        return true;//test
-    }
-
-    @Override
-    public boolean checkUserIsFree(String username) throws Exception {
+    public boolean tryUserPass(String username, String password) throws Exception {
+        try {
+            String url = WEB_URL + "tryUserPass.php" ;
+            final ContentValues values = new ContentValues();
+            values.put("email", username);
+            values.put("pass", password);
+            String json = Php.POST( url, values );
+            return Boolean.valueOf(json);
+        }catch (Exception e){
+            Log.e(Constants.Log.TAG,e.getMessage());
+        }
         return false;
     }
 
     @Override
-    public void addUserPass(String username, String Password) throws Exception {
+    public boolean checkUserIsFree(String username) throws Exception {
+            try {
+                String url = WEB_URL + "tryUserPass.php" ;
+                final ContentValues values = new ContentValues();
+                values.put("email", username);
+                String json = Php.POST( url, values );
+                return ! Boolean.valueOf(json);
+            }catch (Exception e){
+                Log.e(Constants.Log.TAG,e.getMessage());
+            }
+            return true;
+    }
 
+    @Override
+    public void addUserPass(String username, String password) throws Exception {
+        try {
+            String url = WEB_URL + "addAdmin.php" ;
+
+            final ContentValues values = new ContentValues();
+            values.put("email", username);
+            values.put("pass",password );
+            Php.POST( url, values );
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
+        }
     }
 
     ////////---

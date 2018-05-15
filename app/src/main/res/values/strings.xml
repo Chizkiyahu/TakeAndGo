@@ -61,4 +61,6 @@
     <string name="admin_users">Admin users</string>
     <string name="branch">Branch</string>
     <string name="car_model">Car model</string>
+    <string name="error_user_pass">Error: Username or password is incorrect</string>
+    <string name="error_the_user_already_exsit">Error: the user already exsit</string>
 </resources>

@@ -39,7 +39,7 @@ public interface DataSource {
     CarModel getCarModelById(int id);
 
 
-    boolean TryUserPass(String username, String Password) throws Exception;
+    boolean tryUserPass(String username, String Password) throws Exception;
     boolean checkUserIsFree(String username) throws Exception;
     void addUserPass(String username, String Password) throws Exception;
 }

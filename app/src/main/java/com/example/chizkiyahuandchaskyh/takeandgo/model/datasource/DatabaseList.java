@@ -151,7 +151,7 @@ public class DatabaseList implements  DataSource  {
     }
 
     @Override
-    public boolean TryUserPass(String username, String password) throws Exception {
+    public boolean tryUserPass(String username, String password) throws Exception {
         if (username.equals("") || username.equals(null) ){
             throw new Exception("the username cant be empty");
         }
