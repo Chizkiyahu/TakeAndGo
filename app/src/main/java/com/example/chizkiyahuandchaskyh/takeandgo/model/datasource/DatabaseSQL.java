@@ -235,6 +235,23 @@ public class DatabaseSQL implements DataSource {
     }
 
     @Override
+    public void addCreditCard(CreditCard creditCard) throws Exception {
+        try {
+            String url = WEB_URL + "addCreditCard.php" ;
+
+            final ContentValues values = new ContentValues();
+            values.put("customerID", creditCard.getCustomerID());
+            values.put("digits", creditCard.getDigits());
+            values.put("expiration", creditCard.getExpiration().toString());
+            values.put("cvv", creditCard.getCvv());
+            values.put("Issuer", creditCard.getIssuer().toString());
+            Php.POST( url, values );
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
+        }
+    }
+
+    @Override
     public CarModel getCarModelById(int id) {
         try {
             if (id == 0){
@@ -278,7 +295,8 @@ public class DatabaseSQL implements DataSource {
             values.put("phoneNumber", customer.getPhoneNumber());
             values.put("email", customer.getEmail());
             if (customer.getCreditCard() != null){
-                values.put("creditCardID", customer.getCreditCard().getId());
+                customer.getCreditCard().setCustomerID(customer.getId());
+                addCreditCard(customer.getCreditCard());
             }
             Php.POST( url, values );
         } catch (Exception e) {
@@ -407,8 +425,7 @@ public class DatabaseSQL implements DataSource {
                                 jsonObject.getString( "firstName" ),
                                 jsonObject.getInt( "id" ),
                                 jsonObject.getLong( "phoneNumber" ),
-                                jsonObject.getString( "email"),
-                                getCreditCardByID(jsonObject.getInt( "creditCardID" ))
+                                jsonObject.getString( "email")
                                 )
                         );
             }

@@ -19,6 +19,7 @@ public interface DataSource {
     void addCar(Car car) throws Exception;
     void addBranch(Branch branch) throws Exception;
     void addAddress(Address address)  throws Exception;
+    void addCreditCard(CreditCard creditCard) throws Exception;
 
 
 
