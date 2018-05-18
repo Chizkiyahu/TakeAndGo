@@ -72,7 +72,7 @@ public class ModelsActivity extends ListViewBaseActivity {
 
                     idView.setText("Model ID: " + carModel.getCodeModel());
                     manufacturerNameView.setText("Manufacturer: " + carModel.getManufacturerName());
-                    modelNameView.setText("Model Name: " + carModel.getCodeModel());
+                    modelNameView.setText("Model Name: " + carModel.getModelName());
                     engineCapacityView.setText("Engine Capacity: " + carModel.getEngineCapacity());
                     seatingView.setText("Seating: " + carModel.getSeating());
                     gearBoxView.setText("Gear Box: " + carModel.getGearBox().name().toString().toLowerCase());

@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -25,12 +28,15 @@ public class CarActivity extends AppCompatActivity {
 
 
     protected EditText kmView, idView;
+    protected Boolean kmIsCorrectly = false, idIsCorrectly = false;
+    protected Button addButton;
     protected Spinner branchIDView, modelIDView;
     protected DataSource dataSource = BackendFactory.getDataSource();
     protected ArrayList<brancheSpinnerClass> brancheSpinnerClasses = new ArrayList<>();
     protected ArrayList<carModelSpinnerClass> carModelSpinnerClasses = new ArrayList<>();
     protected ArrayAdapter<brancheSpinnerClass> brancheSpinnerClassArrayAdapter;
     protected ArrayAdapter<carModelSpinnerClass> carModelSpinnerArrayAdapter;
+
 
 
     @Override
@@ -41,8 +47,6 @@ public class CarActivity extends AppCompatActivity {
     }
 
     public void onClickAdd(View view) {
-
-
 
             new AsyncTask<Void,Void, Void>(){
 
@@ -60,6 +64,7 @@ public class CarActivity extends AppCompatActivity {
                 }
             }.execute();
 
+
         finish();
     }
 
@@ -71,6 +76,62 @@ public class CarActivity extends AppCompatActivity {
         idView = findViewById(R.id.add_car_line_id);
         branchIDView = findViewById(R.id.add_car_line_branch_id);
         modelIDView = findViewById(R.id.add_car_line_model_id);
+        addButton = findViewById(R.id.car_add_button);
+
+        idView.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    addButton.setEnabled(false);
+                    idIsCorrectly = false;
+                } else {
+                    idIsCorrectly = true;
+                    if (idIsCorrectly && kmIsCorrectly  ) {
+                        addButton.setEnabled(true);
+                    }
+
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        kmView.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    addButton.setEnabled(false);
+                    kmIsCorrectly = false;
+                } else {
+                    kmIsCorrectly = true;
+                    if (idIsCorrectly && kmIsCorrectly  ) {
+                        addButton.setEnabled(true);
+                    }
+
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         new AsyncTask<Void, Void, Void>(){
             @Override

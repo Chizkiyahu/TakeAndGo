@@ -9,7 +9,6 @@ import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Order;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public interface DataSource {
 
@@ -18,7 +17,6 @@ public interface DataSource {
     void addCarModle(CarModel  carModel) throws Exception;
     void addCar(Car car) throws Exception;
     void addBranch(Branch branch) throws Exception;
-    void addAddress(Address address)  throws Exception;
     void addCreditCard(CreditCard creditCard) throws Exception;
 
 

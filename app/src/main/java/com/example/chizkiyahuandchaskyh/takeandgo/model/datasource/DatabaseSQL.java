@@ -346,37 +346,46 @@ public class DatabaseSQL implements DataSource {
         try {
 
             String url = WEB_URL + "addBranch.php" ;
-            this.addAddress(branch.getAddress());
+            //this.addAddress(branch.getAddress());
             final ContentValues values = new ContentValues();
             values.put("id", branch.getId());
             values.put("numParkingSpaces", branch.getNumParkingSpaces());
-            values.put("addressID", getAddressIdByParms(branch.getAddress()));
-
+            //values.put("addressID", getAddressIdByParms(branch.getAddress()));
+            values.put("addressID",addAddress(branch.getAddress()));
             Php.POST( url, values );
         } catch (Exception e) {
             Log.e(Constants.Log.TAG,e.getMessage());
         }
 
     }
-    @Override
-    public void addAddress(Address address) throws Exception {
+
+    public int addAddress(Address address) throws Exception {
         try {
             String url = WEB_URL + "addAddress.php" ;
 
             final ContentValues values = new ContentValues();
             values.put("country",address.getCountry());
-            values.put("city", address.getCity());
+            values.put("city",  address.getCity());
             values.put("street", address.getStreet());
             values.put("houseNum", address.getHouseNum());
-            values.put("Latitude", address.getLatitude());
-            values.put("longitude", address.getLongitude());
-
-
-            Php.POST( url, values );
+            if(address.getLatitude() == 0.0){
+                values.put("Latitude",  0);
+            }else {
+                values.put("Latitude",  address.getLatitude());
+            }
+            if (address.getLongitude() == 0.0){
+                values.put("longitude",  0 );
+            }else {
+                values.put("longitude", address.getLongitude());
+            }
+            String json =  Php.POST( url, values );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Address" );
+            JSONObject jsonObject = array.getJSONObject( 0 );
+            return jsonObject.getInt( "id" );
         } catch (Exception e) {
             Log.e(Constants.Log.TAG,e.getMessage());
         }
-
+        return -1;
     }
 
     @Override

@@ -63,4 +63,6 @@
     <string name="car_model">Car model</string>
     <string name="error_user_pass">Error: Username or password is incorrect</string>
     <string name="error_the_user_already_exsit">Error: the user already exsit</string>
+    <string name="Isreal">Isreal</string>
+    <string name="branch_add_succ_mas">The branch was successfully added</string>
 </resources>

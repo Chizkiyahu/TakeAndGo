@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -22,7 +25,10 @@ import java.util.ArrayList;
 public class ModelActivity extends AppCompatActivity {
 
     protected EditText manufacturerNameView, modelNameView, engineCapacityView, seatingView;
+    protected boolean manufacturerNameIsCorrectly = false, modelNameIsCorrectly = false,
+            engineCapacityIsCorrectly = false, seatingIsCorrectly = false;
     protected Spinner gearBoxSpinnerView;
+    protected Button addButton;
     DataSource dataSource;
 
 
@@ -42,7 +48,128 @@ public class ModelActivity extends AppCompatActivity {
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
         gearBoxSpinnerView.setAdapter(spinnerArrayAdapter);
 
+        addButton =  findViewById(R.id.model_add_buttun);
+        addButton.setEnabled(false);
+        manufacturerNameView.addTextChangedListener(new TextWatcher() {
 
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    addButton.setEnabled(false);
+                    manufacturerNameIsCorrectly = false;
+                } else {
+                    manufacturerNameIsCorrectly = true;
+                    if (manufacturerNameIsCorrectly && modelNameIsCorrectly && engineCapacityIsCorrectly
+                            && seatingIsCorrectly ) {
+                        addButton.setEnabled(true);
+                    }
+
+                }
+            }
+
+
+        });
+        modelNameView.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    addButton.setEnabled(false);
+                    modelNameIsCorrectly = false;
+                } else {
+                    modelNameIsCorrectly = true;
+                    if (manufacturerNameIsCorrectly && modelNameIsCorrectly && engineCapacityIsCorrectly
+                            && seatingIsCorrectly ) {
+                        addButton.setEnabled(true);
+                    }
+
+                }
+            }
+
+
+        });
+        engineCapacityView.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    addButton.setEnabled(false);
+                    engineCapacityIsCorrectly = false;
+                } else {
+                    engineCapacityIsCorrectly = true;
+                    if (manufacturerNameIsCorrectly && modelNameIsCorrectly && engineCapacityIsCorrectly
+                            && seatingIsCorrectly ) {
+                        addButton.setEnabled(true);
+                    }
+
+                }
+            }
+
+
+        });
+        seatingView.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    addButton.setEnabled(false);
+                    seatingIsCorrectly = false;
+                } else {
+                    seatingIsCorrectly = true;
+                    if (manufacturerNameIsCorrectly && modelNameIsCorrectly && engineCapacityIsCorrectly
+                            && seatingIsCorrectly ) {
+                        addButton.setEnabled(true);
+                    }
+
+                }
+            }
+
+
+        });
     }
 
     @Override
