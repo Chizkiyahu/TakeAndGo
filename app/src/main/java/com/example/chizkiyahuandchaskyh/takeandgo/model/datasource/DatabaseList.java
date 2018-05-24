@@ -2,10 +2,13 @@ package com.example.chizkiyahuandchaskyh.takeandgo.model.datasource;
 
 
 import com.example.chizkiyahuandchaskyh.takeandgo.model.beckend.DataSource;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Address;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Branch;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Car;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CarModel;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.CreditCard;
 import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Customer;
+import com.example.chizkiyahuandchaskyh.takeandgo.model.entities.Order;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,6 +52,42 @@ public class DatabaseList implements  DataSource  {
     }
 
     @Override
+    public Address getAddressByID(int id) {
+        return null;
+    }
+
+    @Override
+    public Branch getBranchByID(int id) {
+        return null;
+    }
+
+    @Override
+    public CarModel getCarModelById(int id) {
+        return null;
+    }
+
+    @Override
+    public Car getCarByID(int id) {
+        return null;
+    }
+
+    @Override
+    public CreditCard getCreditCardByID(int id) {
+        return null;
+    }
+
+    @Override
+    public Customer getCustomerById(int id) {
+        return null;
+    }
+
+
+    @Override
+    public Order getOrderById(int id) {
+        return null;
+    }
+
+    @Override
     public void addCarModle(CarModel carModel) throws Exception {
         if(carModelMap.get(carModel.getCodeModel()) != null){
             throw new Exception("the carModle already exists");
@@ -77,7 +116,7 @@ public class DatabaseList implements  DataSource  {
     }
 
     @Override
-    public ArrayList<Customer> getListCustomer() {
+    public ArrayList<Customer> getCustomerList() {
         return new ArrayList<>(customerMap.values());
     }
 
@@ -92,9 +131,23 @@ public class DatabaseList implements  DataSource  {
     }
 
 
+    @Override
+    public ArrayList<Address> getAddressesList() {
+        return null;
+    }
 
     @Override
-    public boolean TryUserPass(String username, String password) throws Exception {
+    public ArrayList<CreditCard> getCreditCardsList() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Order> getOrdersList() {
+        return null;
+    }
+
+    @Override
+    public boolean tryUserPass(String username, String password) throws Exception {
         if (username.equals("") || username.equals(null) ){
             throw new Exception("the username cant be empty");
         }
@@ -123,5 +176,10 @@ public class DatabaseList implements  DataSource  {
             throw new Exception("the password cant be empty");
         }
         usersPassMap.put(username, password);
+    }
+
+    @Override
+    public void addCreditCard(CreditCard creditCard) throws Exception {
+
     }
 }

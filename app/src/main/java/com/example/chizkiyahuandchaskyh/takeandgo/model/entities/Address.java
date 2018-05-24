@@ -1,8 +1,10 @@
 package com.example.chizkiyahuandchaskyh.takeandgo.model.entities;
 
+import java.util.Objects;
+
 public class Address {
 
-    protected String country;
+
 
     public Address(String country, String city, String street, int houseNum) {
         this.country = country;
@@ -11,18 +13,48 @@ public class Address {
         this.houseNum = houseNum;
     }
 
+    public Address(Address oldAddress) {
+        this.country = oldAddress.country;
+        this.city = oldAddress.city;
+        this.street = oldAddress.street;
+        this.houseNum = oldAddress.houseNum;
+    }
+
+    protected int id;
+    protected String country;
     protected String city;
+
+    public Address(int id, String country, String city, String street, int houseNum, double latitude, double longitude) {
+        this.id = id;
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.houseNum = houseNum;
+        Latitude = latitude;
+        this.longitude = longitude;
+    }
+
     protected String street;
     protected int houseNum;
     protected double Latitude;
     protected double longitude;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Address address = (Address) o;
 
+        if (houseNum != address.houseNum) return false;
+        if (!country.equals(address.country)) return false;
+        if (!city.equals(address.city)) return false;
+        return street.equals(address.street);
+    }
 
     @Override
     public String toString() {
-        return houseNum + street + ", "  + city + ", " + country;
+        return houseNum + " " + street + ", "  + city + ", " + country;
     }
 
     public String getCity() {

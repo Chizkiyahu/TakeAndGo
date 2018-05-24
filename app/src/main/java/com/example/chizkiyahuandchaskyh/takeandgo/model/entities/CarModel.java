@@ -19,6 +19,24 @@ public class CarModel {
 
     }
 
+    public CarModel(int codeModel, String manufacturerName, String modelName, int engineCapacity, GEAR_BOX gearBox, int seating) {
+        this.codeModel = codeModel;
+        this.manufacturerName = manufacturerName;
+        this.modelName = modelName;
+        this.engineCapacity = engineCapacity;
+        this.gearBox = gearBox;
+        this.seating = seating;
+    }
+
+    public CarModel(CarModel oldCarModel) {
+        this.codeModel = oldCarModel.codeModel;
+        this.manufacturerName = oldCarModel.manufacturerName;
+        this.modelName = oldCarModel.modelName;
+        this.engineCapacity = oldCarModel.engineCapacity;
+        this.gearBox = oldCarModel.gearBox;
+        this.seating = oldCarModel.seating;
+    }
+
     protected int codeModel;
     protected String manufacturerName;
     protected String modelName;

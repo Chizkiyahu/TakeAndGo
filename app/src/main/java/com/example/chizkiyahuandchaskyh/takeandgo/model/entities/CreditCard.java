@@ -26,11 +26,25 @@ public class CreditCard implements Serializable {
         }
     }
 
+    public int getId() {
+        return id;
+    }
+
+    private int id;
+    private int customerID;
     private String digits;
     private Date expiration;
     private String cvv;
-
     private Issuer issuer;
+
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
 
     public CreditCard(String digits, Issuer issuer, Date expiration, String cvv) {
         this.digits = digits;

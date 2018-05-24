@@ -5,6 +5,28 @@ import android.renderscript.Element;
 public class Order {
     protected int orderID;
     protected int customerID;
+    protected STATUS status;
+    protected Element.DataType start;
+    protected Element.DataType end;
+    protected int startKM;
+    protected int endKM;
+    protected boolean returnNonFilledTank;
+    protected int quantityOfLitersPerBill;
+    protected int amountToPay;
+
+    public Order(int orderID, int customerID, STATUS status, Element.DataType start, Element.DataType end, int startKM, int endKM, boolean returnNonFilledTank, int quantityOfLitersPerBill, int amountToPay) {
+        this.orderID = orderID;
+        this.customerID = customerID;
+        this.status = status;
+        this.start = start;
+        this.end = end;
+        this.startKM = startKM;
+        this.endKM = endKM;
+        this.returnNonFilledTank = returnNonFilledTank;
+        this.quantityOfLitersPerBill = quantityOfLitersPerBill;
+        this.amountToPay = amountToPay;
+    }
+
 
     public int getOrderID() {
         return orderID;
@@ -47,11 +69,11 @@ public class Order {
     }
 
     public int getStartKM() {
-        return StartKM;
+        return startKM;
     }
 
     public void setStartKM(int startKM) {
-        StartKM = startKM;
+        this.startKM = startKM;
     }
 
     public int getEndKM() {
@@ -86,29 +108,8 @@ public class Order {
         this.amountToPay = amountToPay;
     }
 
-    protected STATUS status;
-    protected Element.DataType start;
-    protected Element.DataType end;
-    protected int StartKM;
-    protected int endKM;
 
-    public Order(int orderID, int customerID, STATUS status, Element.DataType start, Element.DataType end, int startKM, int endKM, boolean returnNonFilledTank, int quantityOfLitersPerBill, int amountToPay) {
-        this.orderID = orderID;
-        this.customerID = customerID;
-        this.status = status;
-        this.start = start;
-        this.end = end;
-        StartKM = startKM;
-        this.endKM = endKM;
-        this.returnNonFilledTank = returnNonFilledTank;
-        this.quantityOfLitersPerBill = quantityOfLitersPerBill;
-        this.amountToPay = amountToPay;
-    }
-
-    protected boolean returnNonFilledTank;
-    protected int quantityOfLitersPerBill;
-    protected int amountToPay;
-    enum STATUS{
+   public enum STATUS{
         OPEN,
         CLOSED
     }
