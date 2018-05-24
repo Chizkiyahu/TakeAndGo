@@ -183,7 +183,7 @@ public class DatabaseSQL implements DataSource {
                                 jsonObject.getString( "lastName" ),
                                 jsonObject.getString( "firstName" ),
                                 jsonObject.getInt( "id" ),
-                                jsonObject.getLong( "phoneNumber" ),
+                                jsonObject.getString( "phoneNumber" ),
                                 jsonObject.getString( "email"),
                                 getCreditCardByID(jsonObject.getInt( "creditCardID" ))
                         )
@@ -433,7 +433,7 @@ public class DatabaseSQL implements DataSource {
                                 jsonObject.getString( "lastName" ),
                                 jsonObject.getString( "firstName" ),
                                 jsonObject.getInt( "id" ),
-                                jsonObject.getLong( "phoneNumber" ),
+                                jsonObject.getString( "phoneNumber" ),
                                 jsonObject.getString( "email")
                                 )
                         );

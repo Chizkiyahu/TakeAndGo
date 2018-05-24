@@ -83,7 +83,7 @@ public class CustomerActivity extends AppCompatActivity {
              customer = new Customer(lastNameView.getText().toString(),
                     firstNameView.getText().toString(),
                     Integer.parseInt( idView.getText().toString()),
-                    Long.parseLong(phoneView.getText().toString()),
+                    phoneView.getText().toString(),
                     emailView.getText().toString());
         }
         catch (Exception e){

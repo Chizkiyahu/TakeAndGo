@@ -8,11 +8,11 @@ public class Customer {
     protected String lastName ;
     protected String firstName ;
     protected int id;
-    protected Long phoneNumber ;
+    protected String phoneNumber ;
     protected String email ;
     protected  CreditCard creditCard;
 
-    public Customer(String lastName, String firstName, int id, Long phoneNumber, String email, CreditCard creditCard) {
+    public Customer(String lastName, String firstName, int id, String phoneNumber, String email, CreditCard creditCard) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.id = id;
@@ -21,7 +21,7 @@ public class Customer {
         this.creditCard = creditCard;
     }
 
-    public Customer(String lastName, String firstName, int id, Long phoneNumber, String email) {
+    public Customer(String lastName, String firstName, int id, String phoneNumber, String email) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.id = id;
@@ -53,11 +53,11 @@ public class Customer {
         this.id = id;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
