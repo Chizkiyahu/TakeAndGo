@@ -29,8 +29,6 @@ public class ListViewBaseActivity extends AppCompatActivity {
     }
 
     protected void refresh(){
-
-
         getListViewAdapter().notifyDataSetChanged();
     }
 

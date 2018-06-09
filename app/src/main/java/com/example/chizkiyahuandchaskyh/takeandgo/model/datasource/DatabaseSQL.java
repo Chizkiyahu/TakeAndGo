@@ -581,7 +581,7 @@ public class DatabaseSQL implements DataSource {
     @Override
     public boolean tryUserPass(String username, String password) throws Exception {
         try {
-            String url = WEB_URL + "tryUserPass.php" ;
+            String url = WEB_URL + "tryAdminPass.php" ;
             final ContentValues values = new ContentValues();
             values.put("email", username);
             values.put("pass", password);
