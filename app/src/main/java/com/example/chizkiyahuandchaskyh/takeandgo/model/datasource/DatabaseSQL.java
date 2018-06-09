@@ -569,7 +569,7 @@ public class DatabaseSQL implements DataSource {
                         new Car(jsonObject.getInt( "id" ),
                                 jsonObject.getInt( "branchID" ),
                                 jsonObject.getInt("km"),
-                                new CarModel(getCarModelById(jsonObject.getInt("modelID")))));
+                                jsonObject.getInt("modelID")));
             }
         } catch (Exception e) {
             Log.e(Constants.Log.TAG,e.getMessage());
@@ -655,6 +655,26 @@ public class DatabaseSQL implements DataSource {
             Log.e(Constants.Log.TAG,e.getMessage());
         }*/
         return creditCards.get(id);
+    }
+
+
+    @Override
+    public ArrayList<Car> getFreeCarList() {
+        ArrayList<Car> carsFree = new ArrayList<>();
+        try {
+            String json = Php.GET( WEB_URL + "getFreeCarList.php" );
+            JSONArray array = new JSONObject( json ).getJSONArray( "Car" );
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject jsonObject = array.getJSONObject( i );
+                carsFree.add(new Car(jsonObject.getInt( "id" ),
+                        jsonObject.getInt( "branchID" ),
+                        jsonObject.getInt("km"),
+                        jsonObject.getInt("modelID")));
+            }
+        } catch (Exception e) {
+            Log.e(Constants.Log.TAG,e.getMessage());
+        }
+        return carsFree;
     }
 
 

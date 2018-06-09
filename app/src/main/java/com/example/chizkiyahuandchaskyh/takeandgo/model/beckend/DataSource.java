@@ -28,6 +28,7 @@ public interface DataSource {
     ArrayList<Address> getAddressesList();
     ArrayList<CreditCard> getCreditCardsList();
     ArrayList<Order> getOrdersList();
+    ArrayList<Car> getFreeCarList();
 
     Address getAddressByID(int id);
     Branch getBranchByID(int id);

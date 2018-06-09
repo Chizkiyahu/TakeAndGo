@@ -15,6 +15,13 @@ public class Car  {
         this.modelID = model.getCodeModel();
     }
 
+    public Car(int id, int branchID, int km, int modelID) {
+        this.id = id;
+        this.branchID = branchID;
+        this.km = km;
+        this.modelID = modelID;
+    }
+
     public int getModelID() {
         return modelID;
     }

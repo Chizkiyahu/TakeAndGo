@@ -182,4 +182,9 @@ public class DatabaseList implements  DataSource  {
     public void addCreditCard(CreditCard creditCard) throws Exception {
 
     }
+
+    @Override
+    public ArrayList<Car> getFreeCarList() {
+        return null;
+    }
 }

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.chizkiyahuandchaskyh.takeandgo.R;
+import com.example.chizkiyahuandchaskyh.takeandgo.service.findFreeCarService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         checkLogin();
+        startService(new Intent(getBaseContext(), findFreeCarService.class));
     }
 
     void checkLogin(){
