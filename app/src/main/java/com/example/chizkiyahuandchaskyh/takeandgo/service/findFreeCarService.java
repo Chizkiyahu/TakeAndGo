@@ -23,18 +23,11 @@ public class findFreeCarService extends Service {
 
     private Timer timer = new Timer();
     static final int UPDATE_INTERVAL = 1000 * 10;
-    private Map<Integer, Car> freeCarsCarMap = new HashMap<>();
+    private Map<Integer, Car> freeCarsCarMap ;
     DataSource dataSource = BackendFactory.getDataSource();
     public findFreeCarService() {
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        for (Car car : dataSource.getFreeCarList()){
-            freeCarsCarMap.put(car.getId(), car);
-        }
-    }
 
     @Override
     public IBinder onBind(Intent arg0) {
@@ -46,6 +39,13 @@ public class findFreeCarService extends Service {
 
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
+                if (freeCarsCarMap == null){
+                    freeCarsCarMap = new HashMap<>();
+                    for (Car car : dataSource.getFreeCarList()){
+                        freeCarsCarMap.put(car.getId(), car);
+                    }
+                }
+
                 Log.d("MyService", "Start chack");
                 ArrayList<Car> cars = dataSource.getFreeCarList();
                 for (Car car :  cars){
