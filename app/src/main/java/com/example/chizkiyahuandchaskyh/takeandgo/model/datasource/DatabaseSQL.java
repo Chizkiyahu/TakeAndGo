@@ -235,7 +235,7 @@ public class DatabaseSQL implements DataSource {
     }
 
     @Override
-    public void addCreditCard(CreditCard creditCard) throws Exception {
+    public void addCreditCard(CreditCard creditCard) {
         try {
             String url = WEB_URL + "addCreditCard.php" ;
 
@@ -284,7 +284,7 @@ public class DatabaseSQL implements DataSource {
     }
 
     @Override
-    public void addCustomer(Customer customer) throws Exception {
+    public void addCustomer(Customer customer) {
         try {
             String url = WEB_URL + "addCustomer.php" ;
 
@@ -306,7 +306,7 @@ public class DatabaseSQL implements DataSource {
     }
 
     @Override
-    public void addCarModle(CarModel carModel) throws Exception {
+    public void addCarModle(CarModel carModel) {
         try {
             String url = WEB_URL + "addCarModel.php" ;
 
@@ -324,7 +324,7 @@ public class DatabaseSQL implements DataSource {
     }
 
     @Override
-    public void addCar(Car car) throws Exception {
+    public void addCar(Car car) {
         try {
             String url = WEB_URL + "addCar.php" ;
 
@@ -342,7 +342,7 @@ public class DatabaseSQL implements DataSource {
     }
 
     @Override
-    public void addBranch(Branch branch) throws Exception {
+    public void addBranch(Branch branch) {
         try {
 
             String url = WEB_URL + "addBranch.php" ;
@@ -359,7 +359,7 @@ public class DatabaseSQL implements DataSource {
 
     }
 
-    public int addAddress(Address address) throws Exception {
+    public int addAddress(Address address) {
         try {
             String url = WEB_URL + "addAddress.php" ;
 
@@ -579,7 +579,7 @@ public class DatabaseSQL implements DataSource {
 
 
     @Override
-    public boolean tryUserPass(String username, String password) throws Exception {
+    public boolean tryUserPass(String username, String password) {
         try {
             String url = WEB_URL + "tryAdminPass.php" ;
             final ContentValues values = new ContentValues();
@@ -594,7 +594,7 @@ public class DatabaseSQL implements DataSource {
     }
 
     @Override
-    public boolean checkUserIsFree(String username) throws Exception {
+    public boolean checkUserIsFree(String username) {
             try {
                 String url = WEB_URL + "tryUserPass.php" ;
                 final ContentValues values = new ContentValues();
@@ -608,7 +608,7 @@ public class DatabaseSQL implements DataSource {
     }
 
     @Override
-    public void addUserPass(String username, String password) throws Exception {
+    public void addUserPass(String username, String password) {
         try {
             String url = WEB_URL + "addAdmin.php" ;
 

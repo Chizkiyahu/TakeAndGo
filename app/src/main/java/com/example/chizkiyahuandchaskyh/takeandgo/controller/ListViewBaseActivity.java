@@ -38,7 +38,7 @@ public class ListViewBaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_view_base);
         init();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

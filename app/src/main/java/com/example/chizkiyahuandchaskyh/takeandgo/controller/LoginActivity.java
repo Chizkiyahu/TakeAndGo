@@ -32,16 +32,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    void onClickSignIn(View view){
-
+    public void onClickSignIn(View view){
             String user = email.getText().toString();
             String pass =  password.getText().toString();
-
             new TryUserPass().execute(user, pass);
-
     }
 
-    void onClickRegister(View  view){
+    public void onClickRegister(View  view){
 
         String user = email.getText().toString();
         String pass =  password.getText().toString();
@@ -121,10 +118,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     boolean isPassStrong(String pass) {
-        if (pass.length() < 8){
-            return  false;
-        }
-        return true;
+        return pass.length() >= 8;
     }
 
     @Override
